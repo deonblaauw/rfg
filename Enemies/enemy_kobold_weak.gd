@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var hp = 80.0
 @export var movement_speed = 20.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -24,3 +25,9 @@ func animation():
 		animated_sprite_2d.flip_h = true
 	elif velocity.x < 0:
 		animated_sprite_2d.flip_h = false
+
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	if hp < 0:
+		queue_free() # deletes this enemy
