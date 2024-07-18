@@ -38,7 +38,7 @@ motion_mode = 1
 script = ExtResource("1_2twp3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -60,6 +60,11 @@ collision_mask = 4
 position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_ir8yi")
 
+[node name="healTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="healTimer" to="." method="_on_heal_timer_timeout"]
 
 [editable path="HurtBox"]
