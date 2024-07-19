@@ -29,5 +29,6 @@ func animation():
 
 func _on_hurt_box_hurt(damage):
 	hp -= damage
+	print("Monster hit: ", hp)
 	if hp < 0:
 		queue_free() # deletes this enemy

@@ -38,6 +38,8 @@ size = Vector2(10, 21)
 size = Vector2(20, 26)
 
 [node name="enemy_kobold_weak" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_k0rol")
 

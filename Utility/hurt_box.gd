@@ -23,6 +23,8 @@ func _on_area_entered(attacker):
 						attacker.tempDisable()
 			var damage = attacker.damage
 			hurt.emit(damage)
+			if attacker.has_method("enemy_hit"):
+				attacker.enemy_hit(1)
 
 
 func _on_cooldown_timer_timeout():

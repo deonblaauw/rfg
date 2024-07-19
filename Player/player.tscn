@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=10 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
 [ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="3_q8if2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2il0a"]
+radius = 371.734
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15ght"]
 radius = 3.0
@@ -34,11 +37,20 @@ animations = [{
 size = Vector2(8, 20)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_2twp3")
 
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_2il0a")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -52,7 +64,6 @@ autoplay = "walk"
 frame_progress = 0.368686
 
 [node name="HurtBox" parent="." instance=ExtResource("3_q8if2")]
-z_index = 1
 collision_layer = 2
 collision_mask = 4
 
@@ -63,8 +74,20 @@ shape = SubResource("RectangleShape2D_ir8yi")
 [node name="healTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="iceSpearTimer" type="Timer" parent="Attack"]
+wait_time = 1.5
+
+[node name="iceSpearAttack" type="Timer" parent="Attack/iceSpearTimer"]
+wait_time = 0.075
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="healTimer" to="." method="_on_heal_timer_timeout"]
+[connection signal="timeout" from="Attack/iceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
+[connection signal="timeout" from="Attack/iceSpearTimer/iceSpearAttack" to="." method="_on_ice_spear_attack_timeout"]
 
 [editable path="HurtBox"]
