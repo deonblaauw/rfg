@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 var knockback = Vector2.ZERO
 
+signal remove_from_array(object)
+
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 	movement(direction)
@@ -37,4 +39,5 @@ func _on_hurt_box_hurt(damage , angle, knockback_amount):
 	knockback = angle * knockback_amount
 	#print("Monster hit: ", hp)
 	if hp < 0:
+		remove_from_array.emit(self)
 		queue_free() # deletes this enemy

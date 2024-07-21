@@ -102,7 +102,6 @@ func get_random_target():
 		#print("enemies: ", enemy_close.size())
 		return enemy_close.pick_random().global_position
 	else:
-		print("no enemies")
 		
 		# Use the last known direction when there are no enemies and player is not moving
 		if last_direction.x < 0: # facing left

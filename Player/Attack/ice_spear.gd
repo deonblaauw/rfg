@@ -2,13 +2,16 @@ extends Area2D
 
 var level = 1
 var hp = 1
-var speed = 100
+var base_speed = 20 # above player speed
 var damage = 5
 var knockback_amount = 100
 var attack_size = 1.0
 
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
+var speed = 0
+
+signal remove_from_array(object)
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -20,7 +23,7 @@ func _ready():
 	match level:
 		1:
 			hp = 1
-			speed = 100
+			base_speed = 20 # above player speed
 			damage = 50
 			knockback_amount = 100
 			attack_size = 1.0
@@ -32,14 +35,18 @@ func _ready():
 	tween.play()
 
 func _physics_process(delta):
+	print(player.movement_speed)
+	speed = player.movement_speed + base_speed
 	position += angle * speed * delta
 	
 # this function despawns the ice spear after hiting an enemy
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
+		remove_from_array.emit(self)
 		queue_free()
 
 # despawns ice spear if it doesn't hit anything (so it doesn't exist forever)
 func _on_auto_despawn_timeout():
+	remove_from_array.emit(self)
 	queue_free()

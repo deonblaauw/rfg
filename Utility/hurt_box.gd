@@ -8,6 +8,7 @@ extends Area2D
 
 signal hurt(damage , angle, knockback_amount)
 
+var hit_once_array = []
 
 # the hurtbox is trying to detect the hitbox here
 func _on_area_entered(attacker):
@@ -18,7 +19,13 @@ func _on_area_entered(attacker):
 					collision.call_deferred("set","disabled",true)
 					cooldown_timer.start()
 				1: #HitOnce
-					pass
+					if hit_once_array.has(attacker) == false:
+						hit_once_array.append(attacker)
+						if attacker.has_signal("remove_from_array"):
+							if not is_connected("remove_from_array",Callable(self,"remove_from_list")):
+								attacker.connect("remove_from_array",Callable(self,"remove_from_list"))
+					else:
+						return
 				2: #DisableHitBox
 					if attacker.has_method("tempDisable"):
 						attacker.tempDisable()
@@ -36,6 +43,9 @@ func _on_area_entered(attacker):
 			if attacker.has_method("enemy_hit"):
 				attacker.enemy_hit(1)
 
+func remove_from_list(object):
+	if hit_once_array.has(object):
+		hit_once_array.erase(object)
 
 func _on_cooldown_timer_timeout():
 	collision.call_deferred("set","disabled",false ) # re-enable collision shape
