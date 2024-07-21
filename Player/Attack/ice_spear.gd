@@ -4,7 +4,7 @@ var level = 1
 var hp = 1
 var speed = 100
 var damage = 5
-var knock_amount = 100
+var knockback_amount = 100
 var attack_size = 1.0
 
 var target = Vector2.ZERO
@@ -22,7 +22,7 @@ func _ready():
 			hp = 1
 			speed = 100
 			damage = 50
-			knock_amount = 100
+			knockback_amount = 100
 			attack_size = 1.0
 			
 			

@@ -14,14 +14,18 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 # Attack Nodes
 @onready var ice_spear_timer = $Attack/iceSpearTimer
 @onready var ice_spear_attack_timer = $Attack/iceSpearTimer/iceSpearAttack
+
 # Ice Spear Attributes
 var icespear_ammo = 0
-var icespear_baseammo = 5 # shoots this many in one go
-var icespear_attack_speed = 1.5
+@export var icespear_baseammo = 5 # shoots this many in one go
+@export var icespear_attack_speed = 1.5
 var icespear_level = 1
 
 # Enemies close by (for attack)
 var enemy_close = []
+
+# Last known direction
+var last_direction = Vector2.UP
 
 func _ready():
 	hp = maxHp
@@ -42,14 +46,14 @@ func setHealRate(rate):
 	if rate != 0:
 		heal_timer.wait_time = 1.0/rate
 	
-	
 func movement():
 	var direction = Input.get_vector("left","right","up","down")
+	if not direction.is_zero_approx():
+		last_direction = direction
 	velocity = direction * movement_speed
 	move_and_slide()
 	
 func animation():
-	
 	if not velocity.is_zero_approx():
 		animated_sprite_2d.play()
 	else:
@@ -61,19 +65,15 @@ func animation():
 		animated_sprite_2d.flip_h = false
 		
 
-
-func _on_hurt_box_hurt(damage):
+# using underscore just means we're not using that variable
+func _on_hurt_box_hurt(damage , _angle, _knockback):
 	hp -= damage
 	print("HP:",hp)
-
 
 func _on_heal_timer_timeout():
 	hp += healHp
 	hp = clamp(hp , 0 , maxHp)
 	#print("heal:",hp)
-
-
-
 
 # this timer loads the ammo
 func _on_ice_spear_timer_timeout():
@@ -99,10 +99,23 @@ func get_random_target():
 	remove_null_items()
 	
 	if enemy_close.size() > 0:
-		print("enemies: ", enemy_close.size())
+		#print("enemies: ", enemy_close.size())
 		return enemy_close.pick_random().global_position
 	else:
-		return Vector2.UP # shoots up if there's no targets
+		print("no enemies")
+		
+		# Use the last known direction when there are no enemies and player is not moving
+		if last_direction.x < 0: # facing left
+			return position + Vector2(-10, 0)
+		elif last_direction.x > 0: # facing right
+			return position + Vector2(10, 0)
+		elif last_direction.y < 0: # facing up
+			return position + Vector2(0, -10)
+		elif last_direction.y > 0: # facing down
+			return position + Vector2(0, 10)
+		else:
+			# Default to shooting upwards if no direction is found
+			return position + Vector2(0, -10)
 
 func remove_null_items():
 	for i in range(enemy_close.size() - 1, -1, -1):
@@ -112,7 +125,6 @@ func remove_null_items():
 func _on_enemy_detection_area_body_entered(body):
 	if not enemy_close.has(body):
 		enemy_close.append(body)
-
 
 func _on_enemy_detection_area_body_exited(body):
 	if not enemy_close.has(body):

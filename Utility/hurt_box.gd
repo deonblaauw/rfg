@@ -6,7 +6,8 @@ extends Area2D
 @onready var collision = $CollisionShape2D
 @onready var cooldown_timer = $cooldownTimer
 
-signal hurt(damage)
+signal hurt(damage , angle, knockback_amount)
+
 
 # the hurtbox is trying to detect the hitbox here
 func _on_area_entered(attacker):
@@ -22,7 +23,16 @@ func _on_area_entered(attacker):
 					if attacker.has_method("tempDisable"):
 						attacker.tempDisable()
 			var damage = attacker.damage
-			hurt.emit(damage)
+			var angle = Vector2.ZERO
+			var knockback = 1
+			
+			# check if they exist before assigning (defensive programming)
+			if not attacker.get("angle") == null:
+				angle = attacker.angle
+			if not attacker.get("knockback_amount") == null:
+				knockback = attacker.knockback_amount
+				
+			hurt.emit(damage , angle, knockback)
 			if attacker.has_method("enemy_hit"):
 				attacker.enemy_hit(1)
 
