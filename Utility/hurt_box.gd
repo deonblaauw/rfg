@@ -29,6 +29,8 @@ func _on_area_entered(attacker):
 				2: #DisableHitBox
 					if attacker.has_method("tempDisable"):
 						attacker.tempDisable()
+						
+			# apply damage and knockback
 			var damage = attacker.damage
 			var angle = Vector2.ZERO
 			var knockback = 1

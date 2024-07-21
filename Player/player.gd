@@ -128,3 +128,6 @@ func _on_enemy_detection_area_body_entered(body):
 func _on_enemy_detection_area_body_exited(body):
 	if not enemy_close.has(body):
 		enemy_close.erase(body)
+
+func get_movement_speed():
+	return movement_speed

@@ -35,8 +35,9 @@ func _ready():
 	tween.play()
 
 func _physics_process(delta):
-	print(player.movement_speed)
-	speed = player.movement_speed + base_speed
+	if player.has_method("get_movement_speed"):
+		speed = player.get_movement_speed() + base_speed
+	
 	position += angle * speed * delta
 	
 # this function despawns the ice spear after hiting an enemy
