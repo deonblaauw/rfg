@@ -61,7 +61,7 @@ shape = SubResource("CapsuleShape2D_15ght")
 sprite_frames = SubResource("SpriteFrames_o3q1y")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.368686
+frame_progress = 0.926287
 
 [node name="HurtBox" parent="." instance=ExtResource("3_q8if2")]
 collision_layer = 2
