@@ -43,11 +43,11 @@ func _ready():
 	
 	match last_movement:
 		Vector2.UP, Vector2.DOWN:
-			print("Up Down: ",last_movement)
+			#print("Up Down: ",last_movement)
 			move_to_less = global_position + Vector2(randf_range( -spwnDistFar, -spwnDistNear), last_movement.y)*spwnRangeScale
 			move_to_more = global_position + Vector2(randf_range( spwnDistNear, spwnDistFar), last_movement.y)*spwnRangeScale
 		Vector2.RIGHT, Vector2.LEFT:
-			print("Right Left: ",last_movement)
+			#print("Right Left: ",last_movement)
 			move_to_less = global_position + Vector2(last_movement.x , randf_range( -spwnDistFar, -spwnDistNear))*spwnRangeScale
 			move_to_more = global_position + Vector2(last_movement.x, randf_range( spwnDistNear, spwnDistFar))*spwnRangeScale
 		_: # diagnol case
