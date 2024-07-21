@@ -2,9 +2,9 @@ extends Area2D
 
 var level = 1
 var hp = 1
-var base_speed = 20 # above player speed
-var damage = 5
-var knockback_amount = 100
+@export var base_speed = 20 # this adds onto player speed for total speed
+@export var damage = 5
+@export var knockback_amount = 100
 var attack_size = 1.0
 
 var target = Vector2.ZERO

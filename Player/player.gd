@@ -9,7 +9,9 @@ extends CharacterBody2D
 
 var hp = 0
 
-# Ice Spear
+# -----------------------------------------------------------
+## Ice Spear
+# -----------------------------------------------------------
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 # Attack Nodes
 @onready var ice_spear_timer = $Attack/iceSpearTimer
@@ -20,6 +22,22 @@ var icespear_ammo = 0
 @export var icespear_baseammo = 5 # shoots this many in one go
 @export var icespear_attack_speed = 1.5
 var icespear_level = 1
+# -----------------------------------------------------------
+
+# -----------------------------------------------------------
+## Ice Spear
+# -----------------------------------------------------------
+var tornado = preload("res://Player/Attack/tornado.tscn")
+# Attack Nodes
+@onready var tornado_timer = $Attack/TornadoTimer
+@onready var tornado_attack_timer = $Attack/TornadoTimer/TornadoAttackTimer
+
+# TornadoAttributes
+var tornado_ammo = 0
+@export var tornado_baseammo = 1 # shoots this many in one go
+@export var tornado_attack_speed = 3.0
+var tornado_level = 1
+# -----------------------------------------------------------
 
 # Enemies close by (for attack)
 var enemy_close = []
@@ -36,6 +54,11 @@ func attack():
 		ice_spear_timer.wait_time = icespear_attack_speed
 		if ice_spear_timer.is_stopped():
 			ice_spear_timer.start()
+			
+	if tornado_level > 0:
+		tornado_timer.wait_time = tornado_attack_speed
+		if tornado_timer.is_stopped():
+			tornado_timer.start()
 		
 func _physics_process(_delta):
 	movement()
@@ -50,7 +73,7 @@ func movement():
 	var direction = Input.get_vector("left","right","up","down")
 	if not direction.is_zero_approx():
 		last_direction = direction
-	velocity = direction * movement_speed
+	velocity = direction.normalized() * movement_speed
 	move_and_slide()
 	
 func animation():
@@ -94,6 +117,25 @@ func _on_ice_spear_attack_timeout():
 		else:
 			ice_spear_attack_timer.stop()
 
+func _on_tornado_timer_timeout():
+	tornado_ammo += tornado_baseammo
+	tornado_attack_timer.start()
+
+
+func _on_tornado_attack_timer_timeout():
+	if tornado_ammo > 0:
+		var tornado_attack = tornado.instantiate()
+		tornado_attack.position = position
+		tornado_attack.last_movement = last_direction
+		tornado_attack.level = tornado_level
+		add_child(tornado_attack)
+		tornado_ammo -= 1
+		if tornado_ammo > 0:
+			tornado_attack_timer.start()
+		else:
+			tornado_attack_timer.stop()
+	
+	
 func get_random_target():
 	# Remove null items from the enemy_close array
 	remove_null_items()
@@ -131,3 +173,6 @@ func _on_enemy_detection_area_body_exited(body):
 
 func get_movement_speed():
 	return movement_speed
+
+
+

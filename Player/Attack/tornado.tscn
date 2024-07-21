@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bhbdk5eossup3"]
+
+[ext_resource type="Script" path="res://Player/Attack/tornado.gd" id="1_0lkxa"]
+[ext_resource type="Texture2D" uid="uid://dwojj7ouvxwsk" path="res://Assets/Textures/Items/Weapons/Tornado/whirlwind.png" id="1_k6f4e"]
+[ext_resource type="Texture2D" uid="uid://b756axc6ny1c1" path="res://Assets/Textures/Items/Weapons/Tornado/tornado_wobbly.png" id="2_dya6l"]
+[ext_resource type="AudioStream" uid="uid://bgtmipl47xk7w" path="res://Assets/Audio/SoundEffect/tornado.ogg" id="3_n1gjg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_louol"]
+atlas = ExtResource("2_dya6l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mtnf"]
+atlas = ExtResource("2_dya6l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfb7d"]
+atlas = ExtResource("2_dya6l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypc1t"]
+atlas = ExtResource("2_dya6l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ban20"]
+atlas = ExtResource("1_k6f4e")
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw285"]
+atlas = ExtResource("1_k6f4e")
+region = Rect2(16, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p6p4"]
+atlas = ExtResource("1_k6f4e")
+region = Rect2(32, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg616"]
+atlas = ExtResource("1_k6f4e")
+region = Rect2(48, 0, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0n5hh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_louol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mtnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfb7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypc1t")
+}],
+"loop": true,
+"name": &"tornado_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ban20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw285")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p6p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg616")
+}],
+"loop": true,
+"name": &"tornado_powered",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnn1y"]
+radius = 7.0
+height = 20.0
+
+[node name="Tornado" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_0lkxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0n5hh")
+animation = &"tornado_powered"
+autoplay = "tornado_powered"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dnn1y")
+
+[node name="autoDespawn" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="snd_attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n1gjg")
+autoplay = true
+
+[connection signal="timeout" from="autoDespawn" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="autoDespawn" to="." method="_on_auto_despawn_timeout"]
