@@ -9,6 +9,13 @@ extends CharacterBody2D
 
 var hp = 0
 
+# ***************       Player Levels        ****************
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
+
+# ***************       Player Weapons       ****************
+
 # -----------------------------------------------------------
 ## Ice Spear
 # -----------------------------------------------------------
@@ -198,3 +205,13 @@ func spawn_javelin():
 		javelin_base.add_child(javelin_spawn)
 		calc_spawns -= 1
 
+
+
+func _on_grab_area_area_entered(area):
+	if area.is_in_group("loot"):
+		area.target = self
+
+
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var gem_exp = area.collected()
