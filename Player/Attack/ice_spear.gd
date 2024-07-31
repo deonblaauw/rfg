@@ -24,20 +24,20 @@ func _ready():
 		1:
 			hp = 1
 			base_speed = 20 # above player speed
-			damage = 50
+			damage = 5
 			knockback_amount = 100
 			attack_size = 1.0
 			
-			
+	
+	if player.has_method("get_movement_speed"):
+		speed = player.get_movement_speed() + base_speed
+				
 	# tween : make spear grow larger in size over time
 	var tween = create_tween()
 	tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(tween.TRANS_QUINT).set_ease(tween.EASE_OUT)
 	tween.play()
 
 func _physics_process(delta):
-	if player.has_method("get_movement_speed"):
-		speed = player.get_movement_speed() + base_speed
-	
 	position += angle * speed * delta
 	
 # this function despawns the ice spear after hiting an enemy

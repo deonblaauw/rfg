@@ -33,8 +33,8 @@ func _ready():
 	match level:
 		1:
 			hp = 1
-			speed = 100
-			damage = 50
+			base_speed = -50.0
+			damage = 5
 			knockback_amount = 100
 			attack_size = 1.0
 			
@@ -92,10 +92,7 @@ func _ready():
 	tween.play()
 	
 	
-func _physics_process(delta):	
-	#if player.has_method("get_movement_speed"):
-		#speed = player.get_movement_speed() + base_speed
-		
+func _physics_process(delta):		
 	position += angle * speed * delta
 
 # tornado doesn't take damage by hitting enemies, it just dies out

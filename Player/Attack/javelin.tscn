@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cojphosbu2drh"]
+
+[ext_resource type="Texture2D" uid="uid://b78bs70fcom1n" path="res://Assets/Textures/Items/Weapons/javelin_3_new.png" id="1_cxo31"]
+[ext_resource type="Script" path="res://Player/Attack/javelin.gd" id="1_lqtw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bfko"]
+size = Vector2(3.53553, 35.3553)
+
+[node name="javelin" type="Area2D"]
+script = ExtResource("1_lqtw8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cxo31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0.250001)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_4bfko")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="ChangeDirectionTimer" type="Timer" parent="."]
+
+[node name="ResetPositionTimer" type="Timer" parent="."]
+
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]

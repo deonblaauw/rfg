@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var hp = 80.0
+@export var hp = 10.0
 @export var movement_speed = 20.0
 @export var knockback_recovery = 3.5
 @onready var animated_sprite_2d = $AnimatedSprite2D
