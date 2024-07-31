@@ -40,6 +40,7 @@ func _ready():
 func _physics_process(delta):
 	position += angle * speed * delta
 	
+# ice spear takes damage when hitting enemy (enemy_hit)
 # this function despawns the ice spear after hiting an enemy
 func enemy_hit(charge = 1):
 	hp -= charge

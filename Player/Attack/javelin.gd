@@ -34,6 +34,7 @@ var sprite_jav_attack = preload("res://Assets/Textures/Items/Weapons/javelin_3_n
 signal remove_from_array(object)
 
 func _ready():
+	_on_reset_position_timer_timeout()
 	update_javelin()
 	
 func update_javelin():
@@ -47,7 +48,7 @@ func update_javelin():
 			knockback_amount = 100
 			attack_size = 1.0
 			
-			paths = 1
+			paths = 5
 			attack_speed = 4.0
 	
 	scale = Vector2(1.0,1.0) * attack_size
@@ -61,14 +62,19 @@ func update_javelin():
 func _physics_process(delta):
 	if target_array.size() > 0:
 		position += angle * speed * delta	
+	else:
+		var player_angle = global_position.direction_to(reset_position)
+		var distance_diff = global_position - player.global_position
+		var return_speed = 20
+		if abs(distance_diff.x) > 500 or abs(distance_diff.y) > 500:
+			return_speed = 100
 		
-## this function despawns the ice spear after hiting an enemy
-#func enemy_hit(charge = 1):
-	#hp -= charge
-	#if hp <= 0:
-		#remove_from_array.emit(self)
-		#queue_free()
-
+		position += player_angle * return_speed * delta
+		rotation = global_position.direction_to(player.global_position).angle() + deg_to_rad(135)
+		
+# javelin doesn't take damage by hitting enemies
+func enemy_hit(_charge = 1):
+	pass
 
 func add_paths():
 	snd_attack.play()
@@ -89,6 +95,11 @@ func add_paths():
 func process_path():
 	angle = global_position.direction_to(target)
 	change_direction_timer.start()
+	
+	var tween = create_tween()
+	var new_rotation_degrees = angle.angle() + deg_to_rad(135)
+	tween.tween_property(self,"rotation",new_rotation_degrees,0.25).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 
 func enable_attack(attack = true):
 	if attack:
@@ -116,3 +127,18 @@ func _on_change_direction_timer_timeout():
 		change_direction_timer.stop()
 		attack_timer.start()
 		enable_attack(false)
+
+
+func _on_reset_position_timer_timeout():
+	var choose_direction = randi() % 4
+	reset_position = player.global_position
+	
+	match choose_direction:
+		0:
+			reset_position.x += 50.0
+		1:
+			reset_position.x -= 50.0
+		2:
+			reset_position.y += 50.0
+		3:
+			reset_position.y -= 50.0

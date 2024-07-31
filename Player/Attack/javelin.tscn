@@ -31,9 +31,12 @@ autostart = true
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
 
 [node name="ResetPositionTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kg7b4")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
+[connection signal="timeout" from="ResetPositionTimer" to="." method="_on_reset_position_timer_timeout"]

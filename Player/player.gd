@@ -47,7 +47,7 @@ var javelin = preload("res://Player/Attack/javelin.tscn")
 @onready var javelin_base = $Attack/JavelinBase
 
 # JavelinAttributes
-var javelin_ammo = 1
+@export var javelin_ammo = 1
 var javelin_level = 1
 # -----------------------------------------------------------
 
@@ -150,7 +150,6 @@ func _on_tornado_attack_timer_timeout():
 			tornado_attack_timer.start()
 		else:
 			tornado_attack_timer.stop()
-	
 	
 func get_random_target():
 	# Remove null items from the enemy_close array
