@@ -101,5 +101,5 @@ autostart = true
 stream = ExtResource("3_n1gjg")
 autoplay = true
 
-[connection signal="timeout" from="autoDespawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="autoDespawn" to="." method="_on_auto_despawn_timeout"]
+[connection signal="timeout" from="autoDespawn" to="." method="_on_timer_timeout"]
