@@ -65,9 +65,16 @@ var enemy_close = []
 # Last known direction
 var last_direction = Vector2.UP
 
+# GUI
+@onready var experience_bar = $GUILayer/Control/ExperienceBar
+@onready var lbl_level = $GUILayer/Control/ExperienceBar/lbl_level
+
+
+
 func _ready():
 	hp = maxHp
 	attack()
+	set_exp_bar(experience , calculate_experience_cap())
 
 func attack():
 	if icespear_level > 0:
@@ -205,7 +212,43 @@ func spawn_javelin():
 		javelin_base.add_child(javelin_spawn)
 		calc_spawns -= 1
 
+func calculate_experience(gem_exp):
+	var exp_required = calculate_experience_cap()
+	collected_experience += gem_exp
+	
+	#leveling up below
+	if experience + collected_experience >= exp_required: 
+		collected_experience -= exp_required - experience
+		experience_level += 1
+		experience = 0
+		exp_required = calculate_experience_cap()
+		levelup()
+	else:
+		experience += collected_experience
+		collected_experience = 0
+		
+	set_exp_bar(experience , exp_required)
 
+func levelup():
+	#print("Level: ", experience_level)
+	lbl_level.text = str("Level: ", experience_level)
+	calculate_experience(0)
+	
+func calculate_experience_cap():
+	var exp_cap = experience_level
+	
+	if experience_level < 20:
+		exp_cap = experience_level * 5.0
+	elif experience_level < 40:
+		exp_cap = 95 + (experience_level - 19) * 8
+	else:
+		exp_cap = 255 + (experience_level - 39) * 12
+		
+	return exp_cap
+	
+func set_exp_bar(set_value = 1, set_max_value = 100):
+	experience_bar.value = set_value
+	experience_bar.max_value = set_max_value
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):
@@ -215,3 +258,4 @@ func _on_grab_area_area_entered(area):
 func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.collected()
+		calculate_experience(gem_exp)
