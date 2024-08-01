@@ -66,9 +66,15 @@ var enemy_close = []
 var last_direction = Vector2.UP
 
 # GUI
-@onready var experience_bar = $GUILayer/Control/ExperienceBar
-@onready var lbl_level = $GUILayer/Control/ExperienceBar/lbl_level
+@onready var experience_bar = $GUILayer/GUI/ExperienceBar
+@onready var lbl_level = $GUILayer/GUI/ExperienceBar/lbl_level
 
+# GUI - LevelUp
+@onready var lbl_levelup = $GUILayer/GUI/LevelUp/lbl_levelup
+@onready var upgrade_options = $GUILayer/GUI/LevelPanel/UpgradeOptions
+@onready var snd_levelup = $GUILayer/GUI/LevelPanel/snd_levelup
+@onready var level_panel = $GUILayer/GUI/LevelPanel
+@onready var itemOptions = preload("res://Utility/item_option.tscn")
 
 
 func _ready():
@@ -230,9 +236,22 @@ func calculate_experience(gem_exp):
 	set_exp_bar(experience , exp_required)
 
 func levelup():
+	snd_levelup.play()
 	#print("Level: ", experience_level)
 	lbl_level.text = str("Level: ", experience_level)
-	calculate_experience(0)
+	level_panel.visible = true
+	var tween = level_panel.create_tween()
+	tween.tween_property(level_panel,"position",Vector2(220,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.play()
+	
+	var options = 0
+	var options_max = 3
+	while options < options_max:
+		var option_choice = itemOptions.instantiate()
+		upgrade_options.add_child(option_choice)
+		options += 1 # to exit the loop
+	
+	get_tree().paused = true # pause game here
 	
 func calculate_experience_cap():
 	var exp_cap = experience_level
@@ -259,3 +278,14 @@ func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.collected()
 		calculate_experience(gem_exp)
+
+func upgrade_character(upgrade):
+	print("upgrade_character called")
+	var option_children = upgrade_options.get_children()
+	for i in option_children:
+		i.queue_free()
+		
+	level_panel.visible = false
+	level_panel.position = Vector2(800,50)
+	get_tree().paused = false # unpause game here
+	calculate_experience(0)

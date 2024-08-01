@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://hkn1n2b2nbyh"]
+
+[ext_resource type="Texture2D" uid="uid://bcaibdpro057b" path="res://Assets/Textures/Enemy/bat_monster_sprite_sheet.png" id="1_y5i75"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ep2"]
+atlas = ExtResource("1_y5i75")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl1ua"]
+atlas = ExtResource("1_y5i75")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlmri"]
+atlas = ExtResource("1_y5i75")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21vh3"]
+atlas = ExtResource("1_y5i75")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3ktb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87ep2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl1ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlmri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21vh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy_Bat" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_a3ktb")
+frame_progress = 0.388225
