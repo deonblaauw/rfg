@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var maxHp = 50.0
-@export var movement_speed = 100.0
+@export var maxHp = 80.0
+@export var movement_speed = 80.0
 @export var healHp = 0.5 # heals this many per healRate
 @export var healRate = 1.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -90,7 +90,15 @@ var last_direction = Vector2.UP
 @onready var collected_upgrades_ui = $GUILayer/GUI/CollectedUpgrades
 @onready var itemContainer_ui = preload("res://Player/GUI/item_container.tscn")
 
+# GUI DeathPanel
+@onready var death_panel = $GUILayer/GUI/DeathPanel
+@onready var lbl_result = $GUILayer/GUI/DeathPanel/lbl_Result
+@onready var snd_victory = $GUILayer/GUI/DeathPanel/snd_victory
+@onready var snd_lose = $GUILayer/GUI/DeathPanel/snd_lose
+
+
 func _ready():
+	death_panel.visible = false
 	upgrade_character("icespear1") # initial weapon
 	hp = maxHp
 	attack()
@@ -144,6 +152,8 @@ func animation():
 func _on_hurt_box_hurt(damage , _angle, _knockback):
 	hp -= clamp(damage-armor, 1.0, INF)
 	print("HP:",hp)
+	if hp <= 0:
+		death()
 
 func _on_heal_timer_timeout():
 	hp += healHp
@@ -416,3 +426,17 @@ func adjust_gui_collection(upgrade):
 					collected_weapons_ui.add_child(new_item)
 				"upgrade":
 					collected_upgrades_ui.add_child(new_item)
+
+func death():
+	death_panel.visible = true
+	get_tree().paused = true
+	var tween = death_panel.create_tween()
+	tween.tween_property(death_panel,"position",Vector2(220,50),3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
+	
+	if time > 300:
+		lbl_result.text = "You Win!"
+		snd_victory.play()
+	else:
+		lbl_result.text = "You Lose :("
+		snd_lose.play()

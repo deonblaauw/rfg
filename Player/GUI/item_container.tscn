@@ -11,6 +11,6 @@ script = ExtResource("2_k4fnk")
 
 [node name="ItemTexture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 33.0
-offset_bottom = 33.0
+offset_right = 36.0
+offset_bottom = 36.0
 scale = Vector2(0.33, 0.33)

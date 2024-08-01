@@ -2,7 +2,7 @@ extends Area2D
 
 # HitBox: I'm Hitting
 
-@export var damage = 1
+var damage = 1
 @onready var disable_timer = $disableHitBoxTimer
 @onready var collision = $CollisionShape2D
 

@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var movement_speed = 20.0
 @export var knockback_recovery = 3.5
 @export var experience = 1
+@export var enemy_damage = 1
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var snd_hit = $snd_hit
+@onready var hit_box = $HitBox
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -16,6 +18,9 @@ var exp_gem = preload("res://Objects/experience_gem.tscn")
 var knockback = Vector2.ZERO
 
 signal remove_from_array(object)
+
+func _ready():
+	hit_box.damage = enemy_damage
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)

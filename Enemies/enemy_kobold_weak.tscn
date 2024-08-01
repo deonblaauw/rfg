@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://0wmftqvdiqo8"]
 
-[ext_resource type="Script" path="res://Enemies/enemy_kobold_weak.gd" id="1_k0rol"]
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_f2jcl"]
 [ext_resource type="Texture2D" uid="uid://m48ttfw6ov11" path="res://Assets/Textures/Enemy/kolbold_weak.png" id="2_k7a45"]
 [ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="3_o15iq"]
 [ext_resource type="PackedScene" uid="uid://b7fn7x0620o70" path="res://Utility/hit_box.tscn" id="4_inrr8"]
@@ -36,13 +36,14 @@ animations = [{
 size = Vector2(10, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vy4n"]
-size = Vector2(20, 26)
+size = Vector2(28, 30.6667)
 
 [node name="enemy_kobold_weak" type="CharacterBody2D"]
+scale = Vector2(0.9, 0.9)
 collision_layer = 4
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_k0rol")
+script = ExtResource("1_f2jcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -67,7 +68,7 @@ collision_mask = 2
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(1, 3)
+position = Vector2(0.666667, 2)
 shape = SubResource("RectangleShape2D_2vy4n")
 
 [node name="snd_hit" type="AudioStreamPlayer2D" parent="."]

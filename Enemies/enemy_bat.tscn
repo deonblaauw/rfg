@@ -1,43 +1,97 @@
-[gd_scene load_steps=7 format=3 uid="uid://hkn1n2b2nbyh"]
+[gd_scene load_steps=14 format=3 uid="uid://bau1tfxv4qvbo"]
 
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_5vwlv"]
 [ext_resource type="Texture2D" uid="uid://bcaibdpro057b" path="res://Assets/Textures/Enemy/bat_monster_sprite_sheet.png" id="1_y5i75"]
+[ext_resource type="PackedScene" uid="uid://b7fn7x0620o70" path="res://Utility/hit_box.tscn" id="3_pw627"]
+[ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="4_dbg76"]
+[ext_resource type="AudioStream" uid="uid://btnn0022u4vpn" path="res://Assets/Audio/SoundEffect/enemy_hit.ogg" id="5_t6dtl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87ep2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3rgk"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43sd7"]
 atlas = ExtResource("1_y5i75")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tl1ua"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfeop"]
 atlas = ExtResource("1_y5i75")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlmri"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl2bg"]
 atlas = ExtResource("1_y5i75")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_21vh3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yeun"]
 atlas = ExtResource("1_y5i75")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_a3ktb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2fba"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_87ep2")
+"texture": SubResource("AtlasTexture_43sd7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tl1ua")
+"texture": SubResource("AtlasTexture_gfeop")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rlmri")
+"texture": SubResource("AtlasTexture_dl2bg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_21vh3")
+"texture": SubResource("AtlasTexture_8yeun")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Enemy_Bat" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_a3ktb")
-frame_progress = 0.388225
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66i8d"]
+size = Vector2(10.6667, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vy4n"]
+size = Vector2(28, 30.6667)
+
+[node name="enemy_bat" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_5vwlv")
+hp = 8.0
+movement_speed = 25.0
+knockback_recovery = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CapsuleShape2D_n3rgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_i2fba")
+autoplay = "default"
+
+[node name="HitBox" parent="." instance=ExtResource("3_pw627")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(2.38419e-07, 0)
+shape = SubResource("RectangleShape2D_66i8d")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_dbg76")]
+collision_layer = 4
+collision_mask = 2
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_2vy4n")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_t6dtl")
+volume_db = -20.0
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HitBox"]
+[editable path="HurtBox"]

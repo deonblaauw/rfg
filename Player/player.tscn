@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=21 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://br0otd0f51pmc" path="res://Assets/Audio/SoundEffect/levelup.ogg" id="7_owcc0"]
 [ext_resource type="Texture2D" uid="uid://dok84rxgf23x1" path="res://Assets/Textures/GUI/healthbar.png" id="8_1jqf7"]
 [ext_resource type="Texture2D" uid="uid://hdve8g0wamwi" path="res://Assets/Textures/GUI/health.png" id="9_wp4ly"]
+[ext_resource type="AudioStream" uid="uid://bc0j8smwm47ot" path="res://Assets/Audio/SoundEffect/Victory.wav" id="10_nsobr"]
+[ext_resource type="AudioStream" uid="uid://bnj1ua2fqk3p3" path="res://Assets/Audio/SoundEffect/Lose.ogg" id="11_olpsb"]
+[ext_resource type="PackedScene" uid="uid://bmrp6lfqtslyu" path="res://Utility/basic_button.tscn" id="12_fflwm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2il0a"]
 radius = 371.734
@@ -180,6 +183,40 @@ offset_bottom = 100.0
 [node name="snd_levelup" type="AudioStreamPlayer" parent="GUILayer/GUI/LevelPanel"]
 stream = ExtResource("7_owcc0")
 volume_db = -10.0
+
+[node name="DeathPanel" type="Panel" parent="GUILayer/GUI"]
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 222.0
+offset_top = 69.0
+offset_right = 422.0
+offset_bottom = 319.0
+
+[node name="lbl_Result" type="Label" parent="GUILayer/GUI/DeathPanel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_60m7o")
+text = "Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="snd_victory" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
+stream = ExtResource("10_nsobr")
+volume_db = -10.0
+
+[node name="snd_lose" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
+stream = ExtResource("11_olpsb")
+volume_db = -10.0
+
+[node name="btn_menu" parent="GUILayer/GUI/DeathPanel" instance=ExtResource("12_fflwm")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 140.0
+offset_bottom = 231.0
+text = "Menu"
 
 [node name="lblTimer" type="Label" parent="GUILayer/GUI"]
 layout_mode = 0
