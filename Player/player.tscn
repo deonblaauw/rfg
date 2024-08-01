@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=18 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c03hv7qpngsbk" path="res://Assets/Textures/GUI/exp_progress.png" id="5_7amyo"]
 [ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="6_60m7o"]
 [ext_resource type="AudioStream" uid="uid://br0otd0f51pmc" path="res://Assets/Audio/SoundEffect/levelup.ogg" id="7_owcc0"]
+[ext_resource type="Texture2D" uid="uid://dok84rxgf23x1" path="res://Assets/Textures/GUI/healthbar.png" id="8_1jqf7"]
+[ext_resource type="Texture2D" uid="uid://hdve8g0wamwi" path="res://Assets/Textures/GUI/health.png" id="9_wp4ly"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2il0a"]
 radius = 371.734
@@ -140,6 +142,16 @@ text = "Level: 1
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+self_modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 304.0
+offset_top = 200.0
+offset_right = 336.0
+offset_bottom = 208.0
+texture_under = ExtResource("8_1jqf7")
+texture_progress = ExtResource("9_wp4ly")
+
 [node name="LevelPanel" type="Panel" parent="GUILayer/GUI"]
 process_mode = 2
 visible = false
@@ -169,10 +181,33 @@ offset_bottom = 100.0
 stream = ExtResource("7_owcc0")
 volume_db = -10.0
 
-[node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+[node name="lblTimer" type="Label" parent="GUILayer/GUI"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = 280.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("6_60m7o")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectedWeapons" type="GridContainer" parent="GUILayer/GUI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 208.0
 offset_bottom = 40.0
+columns = 10
+
+[node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 208.0
+offset_bottom = 56.0
+columns = 10
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]

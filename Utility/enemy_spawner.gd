@@ -5,11 +5,15 @@ extends Node2D
 
 var time = 0
 
+signal changetime(time)
 
+func _ready():
+	connect("changetime",Callable(player,"change_time"))
 
 func _on_timer_timeout():
 	time += 1
 	spawn_enemies()
+	changetime.emit(time)
 	
 func spawn_enemies():
 	var enemy_spawns = spawns

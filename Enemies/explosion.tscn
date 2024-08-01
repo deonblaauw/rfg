@@ -51,6 +51,7 @@ script = ExtResource("2_v8omc")
 
 [node name="snd_explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_xex1s")
+volume_db = -10.0
 pitch_scale = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

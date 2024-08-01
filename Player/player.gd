@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
-@export var maxHp = 100.0
+@export var maxHp = 50.0
 @export var movement_speed = 100.0
-@export var healHp = 0.5
+@export var healHp = 0.5 # heals this many per healRate
 @export var healRate = 1.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var heal_timer = $healTimer
+@onready var health_bar = $GUILayer/GUI/HealthBar
+@onready var lbl_timer = $GUILayer/GUI/lblTimer
 
 var hp = 0
-
+var time = 0
+ 
 # ***************       Player Levels        ****************
 var experience = 0
 var experience_level = 1
@@ -83,7 +86,9 @@ var last_direction = Vector2.UP
 @onready var snd_levelup = $GUILayer/GUI/LevelPanel/snd_levelup
 @onready var level_panel = $GUILayer/GUI/LevelPanel
 @onready var itemOptions_ui = preload("res://Utility/item_option.tscn")
-
+@onready var collected_weapons_ui = $GUILayer/GUI/CollectedWeapons
+@onready var collected_upgrades_ui = $GUILayer/GUI/CollectedUpgrades
+@onready var itemContainer_ui = preload("res://Player/GUI/item_container.tscn")
 
 func _ready():
 	upgrade_character("icespear1") # initial weapon
@@ -122,6 +127,8 @@ func movement():
 	move_and_slide()
 	
 func animation():
+	health_bar.max_value = maxHp
+	health_bar.value = hp
 	if not velocity.is_zero_approx():
 		animated_sprite_2d.play()
 	else:
@@ -343,6 +350,7 @@ func upgrade_character(upgrade):
 			hp += 20
 			hp = clamp(hp,0,maxHp)
 		
+	adjust_gui_collection(upgrade) 
 	attack() # make sure everything is refreshed
 		
 	var option_children = upgrade_options_gui.get_children()
@@ -382,3 +390,29 @@ func get_random_item():
 		return randomitem
 	else:
 		return null
+		
+func change_time(argtime = 0):
+	time = argtime
+	var get_m = int(time/60.0)
+	var get_s = time % 60
+	if get_m < 10:
+		get_m = str(0,get_m)
+	if get_s < 10:
+		get_s = str(0,get_s)
+	lbl_timer.text = str(get_m,":",get_s)
+	
+func adjust_gui_collection(upgrade):
+	var get_upgraded_displayname = UpgradeDb.UPGRADES[upgrade]["displayname"]
+	var get_type = UpgradeDb.UPGRADES[upgrade]["type"]
+	if get_type != "item":
+		var get_collected_displaynames = []
+		for i in collected_upgrades:
+			get_collected_displaynames.append(UpgradeDb.UPGRADES[i]["displayname"])
+		if not get_upgraded_displayname in get_collected_displaynames:
+			var new_item = itemContainer_ui.instantiate()
+			new_item.upgrade = upgrade
+			match get_type:
+				"weapon":
+					collected_weapons_ui.add_child(new_item)
+				"upgrade":
+					collected_upgrades_ui.add_child(new_item)
