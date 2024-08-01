@@ -26,7 +26,25 @@ func _ready():
 			base_speed = 20 # above player speed
 			damage = 5
 			knockback_amount = 100
-			attack_size = 1.0
+			attack_size = 1.0 * (1 + player.spell_size)
+		2:
+			hp = 1
+			base_speed = 20 # above player speed
+			damage = 5
+			knockback_amount = 100
+			attack_size = 1.0 * (1 + player.spell_size)
+		3:
+			hp = 2
+			base_speed = 20 # above player speed
+			damage = 8
+			knockback_amount = 100
+			attack_size = 1.0 * (1 + player.spell_size)
+		4:
+			hp = 2
+			base_speed = 20 # above player speed
+			damage = 8
+			knockback_amount = 100
+			attack_size = 1.0 * (1 + player.spell_size)
 			
 	
 	if player.has_method("get_movement_speed"):

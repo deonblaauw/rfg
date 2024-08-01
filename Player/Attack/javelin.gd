@@ -46,10 +46,33 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 10
 			knockback_amount = 100
-			attack_size = 1.0
-			
-			paths = 5
-			attack_speed = 4.0
+			paths = 1
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
+		2:
+			hp = 9999
+			base_speed = 200.0
+			damage = 10
+			knockback_amount = 100
+			paths = 2
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
+		3:
+			hp = 9999
+			base_speed = 200.0
+			damage = 10
+			knockback_amount = 100
+			paths = 3
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
+		4:
+			hp = 9999
+			base_speed = 200.0
+			damage = 15
+			knockback_amount = 120
+			paths = 3
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
 	
 	scale = Vector2(1.0,1.0) * attack_size
 	attack_timer.wait_time = attack_speed

@@ -32,11 +32,29 @@ func _ready():
 	# here we can level up our weapon stats
 	match level:
 		1:
-			hp = 1
+			hp = 9999
 			base_speed = -50.0
 			damage = 5
 			knockback_amount = 100
-			attack_size = 1.0
+			attack_size = 1.0 * (1 + player.spell_size)
+		2:
+			hp = 9999
+			base_speed = -50.0
+			damage = 5
+			knockback_amount = 100
+			attack_size = 1.0 * (1 + player.spell_size)
+		3:
+			hp = 9999
+			base_speed = -50.0
+			damage = 5
+			knockback_amount = 100
+			attack_size = 1.0 * (1 + player.spell_size)
+		4:
+			hp = 9999
+			base_speed = -50.0
+			damage = 5
+			knockback_amount = 125
+			attack_size = 1.0 * (1 + player.spell_size)
 			
 	var move_to_less = Vector2.ZERO
 	var move_to_more = Vector2.ZERO
