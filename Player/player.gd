@@ -9,6 +9,9 @@ extends CharacterBody2D
 @onready var health_bar = $GUILayer/GUI/HealthBar
 @onready var lbl_timer = $GUILayer/GUI/lblTimer
 
+@onready var damage_animation = $DamageAnimation
+
+
 var hp = 0
 var time = 0
  
@@ -152,6 +155,7 @@ func animation():
 func _on_hurt_box_hurt(damage , _angle, _knockback):
 	hp -= clamp(damage-armor, 1.0, INF)
 	print("HP:",hp)
+	damage_animation.play()
 	if hp <= 0:
 		death()
 

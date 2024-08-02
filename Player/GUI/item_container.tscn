@@ -6,6 +6,7 @@
 [node name="ItemContainer" type="TextureRect"]
 offset_right = 12.0
 offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_pywts")
 script = ExtResource("2_k4fnk")
 
