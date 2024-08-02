@@ -154,7 +154,7 @@ func animation():
 # using underscore just means we're not using that variable
 func _on_hurt_box_hurt(damage , _angle, _knockback):
 	hp -= clamp(damage-armor, 1.0, INF)
-	print("HP:",hp)
+	#print("HP:",hp)
 	damage_animation.play()
 	if hp <= 0:
 		death()
@@ -444,3 +444,8 @@ func death():
 	else:
 		lbl_result.text = "You Lose :("
 		snd_lose.play()
+
+# deathpanel button
+func _on_btn_menu_click_end():
+	get_tree().paused = false
+	var _level = get_tree().change_scene_to_file("res://Title Screen/menu.tscn")

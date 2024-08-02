@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3oeuyt7f50yh"]
+
+[ext_resource type="Script" path="res://Title Screen/menu.gd" id="1_a3crd"]
+[ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="1_xcutc"]
+[ext_resource type="PackedScene" uid="uid://bmrp6lfqtslyu" path="res://Utility/basic_button.tscn" id="2_58wxw"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a3crd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 362.0
+color = Color(0.563713, 0.231571, 0.103562, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_xcutc")
+theme_override_font_sizes/font_size = 72
+text = "Survivors Clone"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 640.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("1_xcutc")
+theme_override_font_sizes/font_size = 48
+text = "Crappy Edition"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_play" parent="." instance=ExtResource("2_58wxw")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 250.0
+offset_right = 360.0
+offset_bottom = 281.0
+text = "Play"
+
+[node name="btn_quit" parent="." instance=ExtResource("2_58wxw")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 300.0
+offset_right = 360.0
+offset_bottom = 331.0
+text = "Quit"
+
+[connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
+[connection signal="click_end" from="btn_quit" to="." method="_on_btn_quit_click_end"]

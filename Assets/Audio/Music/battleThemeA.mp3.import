@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/battleThemeA.mp3-2cb4da56d434a3254f1d6c00af52
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
