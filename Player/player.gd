@@ -4,7 +4,11 @@ extends CharacterBody2D
 @export var movement_speed = 80.0
 @export var healHp = 0.5 # heals this many per healRate
 @export var healRate = 1.0
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_izra = $AnimatedSpriteIzra
+@onready var animated_sprite_ishtu = $AnimatedSpriteIshtu
+var active_sprite: AnimatedSprite2D = null
+var flip_anim = false
+
 @onready var heal_timer = $healTimer
 @onready var health_bar = $GUILayer/GUI/HealthBar
 @onready var lbl_timer = $GUILayer/GUI/lblTimer
@@ -15,6 +19,9 @@ extends CharacterBody2D
 var hp = 0
 var time = 0
  
+# Dictionary to store each character's AnimatedSprite and other properties if needed
+var characters = {}
+
 # ***************       Player Levels        ****************
 var experience = 0
 var experience_level = 1
@@ -103,14 +110,58 @@ var last_direction = Vector2.UP
 @onready var pause_panel = $GUILayer/GUI/PausePanel
 
 
+#func _ready():
+	#death_panel.visible = false
+	#pause_panel.visible = false
+	#set_active_character("izra")
+	#upgrade_character("icespear1") # initial weapon
+	#hp = maxHp
+	#attack()
+	#set_exp_bar(experience , calculate_experience_cap())
+
+func init_char_dict():
+	# Initialize characters dictionary here, after @onready variables are set
+	characters = {
+		"izra": {
+			"sprite": animated_sprite_izra,
+			"flip_anim": true,
+			"max_hp": 80.0,
+			"movement_speed": 80.0,
+			"heal_hp": 0.5,
+			"heal_rate": 1.0
+		},
+		"ishtu": {
+			"sprite": animated_sprite_ishtu,
+			"flip_anim": false,
+			"max_hp": 100.0,
+			"movement_speed": 90.0,
+			"heal_hp": 0.7,
+			"heal_rate": 0.8
+		}
+	}
+	
 func _ready():
+	init_char_dict()
+
 	death_panel.visible = false
 	pause_panel.visible = false
-	upgrade_character("icespear1") # initial weapon
-	hp = maxHp
-	attack()
-	set_exp_bar(experience , calculate_experience_cap())
+	
+	match Global.selected_character:
+		"izra":
+				# set player character and initial weapon
+				set_active_character("izra")
+				upgrade_character("icespear1") 
+		"ishtu":
+				# set player character and initial weapon
+				set_active_character("ishtu")
+				upgrade_character("javelin1")
+		_:
+			print(" NO CHARACTER FOUND ")
 
+	attack()
+	set_exp_bar(experience, calculate_experience_cap())
+	
+	
 func attack():
 	if icespear_level > 0:
 		ice_spear_timer.wait_time = icespear_attack_speed * (1 - spell_cooldown)
@@ -128,7 +179,7 @@ func attack():
 func _physics_process(_delta):
 	movement()
 	setHealRate(healRate)
-	animation()
+	update_animation()
 	
 func setHealRate(rate):
 	if rate != 0:
@@ -141,20 +192,49 @@ func movement():
 	velocity = direction.normalized() * movement_speed
 	move_and_slide()
 	
-func animation():
+# Animation function
+func update_animation():
+	# Update health bar, etc.
 	health_bar.max_value = maxHp
 	health_bar.value = hp
+
+	# Ensure active_sprite is set
+	if active_sprite == null:
+		return
+	
 	if not velocity.is_zero_approx():
-		animated_sprite_2d.play()
+		active_sprite.play()
 	else:
-		animated_sprite_2d.stop()
+		active_sprite.stop()
 	
 	if velocity.x > 0:
-		animated_sprite_2d.flip_h = true
+		active_sprite.flip_h = flip_anim
 	elif velocity.x < 0:
-		animated_sprite_2d.flip_h = false
+		active_sprite.flip_h = !flip_anim
 		
+# Function to switch characters
+func set_active_character(character_name: String) -> void:
+	if characters.has(character_name):
+		print("Character found: ", character_name)
+		active_sprite = characters[character_name]["sprite"]
+		if active_sprite != null:
+			maxHp = characters[character_name]["max_hp"]
+			movement_speed = characters[character_name]["movement_speed"]
+			healHp = characters[character_name]["heal_hp"]
+			healRate = characters[character_name]["heal_rate"]
+			flip_anim = characters[character_name]["flip_anim"]
+			hp = maxHp
+			print("Character stats: HP=", maxHp, " Speed=", movement_speed, " HealHP=", healHp, " HealRate=", healRate)
+			# Optionally, set the active character's sprite to visible and others to hidden
+			for name in characters.keys():
+				if characters[name]["sprite"] != null:
+					characters[name]["sprite"].visible = (name == character_name)
+		else:
+			print("Error: Active sprite is null for character: ", character_name)
+	else:
+		print("Error: Character not found: ", character_name)
 
+					
 # using underscore just means we're not using that variable
 func _on_hurt_box_hurt(damage , _angle, _knockback):
 	hp -= clamp(damage-armor, 1.0, INF)

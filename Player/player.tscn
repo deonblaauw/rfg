@@ -1,8 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=57 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
 [ext_resource type="Texture2D" uid="uid://qjnq1bnwgrhp" path="res://Assets/Textures/Player/blood effects/1_100x100px.png" id="2_jg7xc"]
+[ext_resource type="Texture2D" uid="uid://buphag71t3pmm" path="res://Assets/Textures/Player/ishtu/Necromancer_creativekind-Sheet.png" id="3_mxvou"]
 [ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="3_q8if2"]
 [ext_resource type="Texture2D" uid="uid://dsetjlsmq5ao2" path="res://Assets/Textures/GUI/exp_background.png" id="4_pk0qy"]
 [ext_resource type="Texture2D" uid="uid://c03hv7qpngsbk" path="res://Assets/Textures/GUI/exp_progress.png" id="5_7amyo"]
@@ -40,6 +41,70 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgbv6"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvex5"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihbor"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_earwi"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g7k5"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78clp"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rorw2"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(960, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7evw"]
+atlas = ExtResource("3_mxvou")
+region = Rect2(1120, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_515e5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgbv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihbor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_earwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g7k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78clp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rorw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7evw")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -250,10 +315,18 @@ z_index = 1
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_15ght")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSpriteIzra" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_o3q1y")
 animation = &"walk"
 autoplay = "walk"
+
+[node name="AnimatedSpriteIshtu" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -17)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_515e5")
+autoplay = "default"
+frame_progress = 0.520929
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")
