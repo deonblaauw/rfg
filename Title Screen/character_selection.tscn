@@ -34,25 +34,33 @@ color = Color(0.564706, 0.231373, 0.101961, 1)
 [node name="btn_back" parent="." instance=ExtResource("1_idy63")]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 250.0
+offset_top = 300.0
 offset_right = 360.0
-offset_bottom = 280.0
+offset_bottom = 330.0
 text = "Back"
 
 [node name="Izra" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 155.0
-offset_top = 120.0
-offset_right = 219.0
-offset_bottom = 184.0
+offset_left = 128.0
+offset_top = 110.0
+offset_right = 192.0
+offset_bottom = 174.0
 
 [node name="Ishtu" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 120.0
-offset_right = 394.0
-offset_bottom = 184.0
+offset_left = 365.0
+offset_top = 110.0
+offset_right = 429.0
+offset_bottom = 174.0
+
+[node name="Bob" parent="." instance=ExtResource("4_h0j8y")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 205.0
+offset_right = 304.0
+offset_bottom = 269.0
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
 [connection signal="char_select_click_end" from="Izra" to="." method="_on_izra_char_select_click_end"]
 [connection signal="char_select_click_end" from="Ishtu" to="." method="_on_ishtu_char_select_click_end"]
+[connection signal="char_select_click_end" from="Bob" to="." method="_on_bob_char_select_click_end"]

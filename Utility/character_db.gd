@@ -6,7 +6,7 @@ const CHARACTERS = {
 			"max_hp": 80.0,
 			"movement_speed": 80.0,
 			"heal_hp": 0.5,
-			"heal_rate": 1.0,
+			"heal_rate": 0.9,
 			"weapon": "Ice Spear"
 		},
 		"ishtu": {
@@ -16,6 +16,14 @@ const CHARACTERS = {
 			"heal_hp": 0.7,
 			"heal_rate": 0.8,
 			"weapon": "Javelin"
+		},
+		"bob": {
+			"flip_anim": false,
+			"max_hp": 110.0,
+			"movement_speed": 60.0,
+			"heal_hp": 0.7,
+			"heal_rate": 0.8,
+			"weapon": "Tornado"
 		}
 	}
 	

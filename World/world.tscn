@@ -92,7 +92,8 @@ texture_filter = 2
 texture_repeat = 2
 texture = ExtResource("1_pkoi1")
 region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 4000, 4000)
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8000, 8000)
+region_filter_clip_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_2kvyb")]
 

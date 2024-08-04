@@ -2,7 +2,7 @@ extends Area2D
 
 var level = 1
 var hp = 9999 # don't want tornado to die too soon after hitting enemy
-@export var base_speed = -50 # this adds onto player speed for total speed
+@export var base_speed = -40 # this adds onto player speed for total speed
 @export var damage = 5
 @export var knockback_amount = 100
 var attack_size = 1.0
@@ -33,25 +33,25 @@ func _ready():
 	match level:
 		1:
 			hp = 9999
-			base_speed = -50.0
+			base_speed = -40.0
 			damage = 5
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		2:
 			hp = 9999
-			base_speed = -50.0
+			base_speed = -40.0
 			damage = 5
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		3:
 			hp = 9999
-			base_speed = -50.0
+			base_speed = -40.0
 			damage = 5
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		4:
 			hp = 9999
-			base_speed = -50.0
+			base_speed = -40.0
 			damage = 5
 			knockback_amount = 125
 			attack_size = 1.0 * (1 + player.spell_size)

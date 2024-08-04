@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=67 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://buphag71t3pmm" path="res://Assets/Textures/Player/ishtu/Necromancer_creativekind-Sheet.png" id="3_mxvou"]
 [ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="3_q8if2"]
 [ext_resource type="Texture2D" uid="uid://dsetjlsmq5ao2" path="res://Assets/Textures/GUI/exp_background.png" id="4_pk0qy"]
+[ext_resource type="Texture2D" uid="uid://c73xp2rxcbp5o" path="res://Assets/Textures/Player/villager_npc_spritesheet/npc01_spritesheet.png" id="4_rjbd6"]
 [ext_resource type="Texture2D" uid="uid://c03hv7qpngsbk" path="res://Assets/Textures/GUI/exp_progress.png" id="5_7amyo"]
 [ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="6_60m7o"]
 [ext_resource type="AudioStream" uid="uid://br0otd0f51pmc" path="res://Assets/Audio/SoundEffect/levelup.ogg" id="7_owcc0"]
@@ -102,6 +103,70 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n7evw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpnr7"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(0, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxgm5"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(30, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd86d"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(60, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40yck"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(90, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e85g0"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(120, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr6x1"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(150, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qos5"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(180, 0, 30, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02mkq"]
+atlas = ExtResource("4_rjbd6")
+region = Rect2(210, 0, 30, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3x1av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpnr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxgm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd86d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40yck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e85g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr6x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qos5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02mkq")
 }],
 "loop": true,
 "name": &"default",
@@ -322,11 +387,18 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="AnimatedSpriteIshtu" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1, -17)
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_515e5")
 autoplay = "default"
 frame_progress = 0.520929
+
+[node name="AnimatedSpriteBob" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_3x1av")
+autoplay = "default"
+frame_progress = 0.146215
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")

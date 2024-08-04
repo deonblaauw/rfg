@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bau1tfxv4qvbo"]
+[gd_scene load_steps=12 format=3 uid="uid://bau1tfxv4qvbo"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_5vwlv"]
-[ext_resource type="Texture2D" uid="uid://bcaibdpro057b" path="res://Assets/Textures/Enemy/bat_monster_sprite_sheet.png" id="1_y5i75"]
+[ext_resource type="Texture2D" uid="uid://diw2n4v4i8yo3" path="res://Assets/Textures/Enemy/DungeonCrawlerSprites/BatSheet.png" id="2_73c3r"]
 [ext_resource type="PackedScene" uid="uid://b7fn7x0620o70" path="res://Utility/hit_box.tscn" id="3_pw627"]
 [ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="4_dbg76"]
 [ext_resource type="AudioStream" uid="uid://btnn0022u4vpn" path="res://Assets/Audio/SoundEffect/enemy_hit.ogg" id="5_t6dtl"]
@@ -10,36 +10,22 @@
 radius = 3.0
 height = 14.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_43sd7"]
-atlas = ExtResource("1_y5i75")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2pnr"]
+atlas = ExtResource("2_73c3r")
+region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfeop"]
-atlas = ExtResource("1_y5i75")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dl2bg"]
-atlas = ExtResource("1_y5i75")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yeun"]
-atlas = ExtResource("1_y5i75")
-region = Rect2(192, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nlne"]
+atlas = ExtResource("2_73c3r")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2fba"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_43sd7")
+"texture": SubResource("AtlasTexture_n2pnr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gfeop")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dl2bg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8yeun")
+"texture": SubResource("AtlasTexture_7nlne")
 }],
 "loop": true,
 "name": &"default",
@@ -67,9 +53,10 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_n3rgk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_i2fba")
 autoplay = "default"
+frame_progress = 0.554586
 
 [node name="HitBox" parent="." instance=ExtResource("3_pw627")]
 collision_layer = 4
