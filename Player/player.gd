@@ -20,7 +20,7 @@ var hp = 0
 var time = 0
  
 # Dictionary to store each character's AnimatedSprite and other properties if needed
-var characters = {}
+#var characters = {}
 
 # ***************       Player Levels        ****************
 var experience = 0
@@ -108,30 +108,9 @@ var last_direction = Vector2.UP
 
 # Pause Panel
 @onready var pause_panel = $GUILayer/GUI/PausePanel
-
-func init_char_dict():
-	# Initialize characters dictionary here, after @onready variables are set
-	characters = {
-		"izra": {
-			"sprite": animated_sprite_izra,
-			"flip_anim": true,
-			"max_hp": 80.0,
-			"movement_speed": 80.0,
-			"heal_hp": 0.5,
-			"heal_rate": 1.0
-		},
-		"ishtu": {
-			"sprite": animated_sprite_ishtu,
-			"flip_anim": false,
-			"max_hp": 100.0,
-			"movement_speed": 90.0,
-			"heal_hp": 0.7,
-			"heal_rate": 0.8
-		}
-	}
 	
 func _ready():
-	init_char_dict()
+	#init_char_dict()
 
 	death_panel.visible = false
 	pause_panel.visible = false
@@ -204,21 +183,30 @@ func update_animation():
 		
 # Function to switch characters
 func set_active_character(character_name: String) -> void:
-	if characters.has(character_name):
+
+	if CharacterDb.CHARACTERS.has(character_name):
 		print("Character found: ", character_name)
-		active_sprite = characters[character_name]["sprite"]
+				
+		match character_name:
+			"izra":
+				active_sprite = animated_sprite_izra
+			"ishtu":
+				active_sprite = animated_sprite_ishtu
+			_:
+				push_error("Unrecognized character!")
+			
 		if active_sprite != null:
-			maxHp = characters[character_name]["max_hp"]
-			movement_speed = characters[character_name]["movement_speed"]
-			healHp = characters[character_name]["heal_hp"]
-			healRate = characters[character_name]["heal_rate"]
-			flip_anim = characters[character_name]["flip_anim"]
+			maxHp = CharacterDb.CHARACTERS[character_name]["max_hp"]
+			movement_speed = CharacterDb.CHARACTERS[character_name]["movement_speed"]
+			healHp = CharacterDb.CHARACTERS[character_name]["heal_hp"]
+			healRate = CharacterDb.CHARACTERS[character_name]["heal_rate"]
+			flip_anim = CharacterDb.CHARACTERS[character_name]["flip_anim"]
 			hp = maxHp
 			print("Character stats: HP=", maxHp, " Speed=", movement_speed, " HealHP=", healHp, " HealRate=", healRate)
-			# Optionally, set the active character's sprite to visible and others to hidden
-			for name in characters.keys():
-				if characters[name]["sprite"] != null:
-					characters[name]["sprite"].visible = (name == character_name)
+
+			# Set the active character's sprite to visible and others to hidden
+			animated_sprite_izra.visible = (character_name == "izra")
+			animated_sprite_ishtu.visible = (character_name == "ishtu")
 		else:
 			print("Error: Active sprite is null for character: ", character_name)
 	else:

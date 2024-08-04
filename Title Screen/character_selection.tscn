@@ -41,16 +41,16 @@ text = "Back"
 
 [node name="Izra" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 117.0
-offset_right = 239.0
-offset_bottom = 181.0
+offset_left = 155.0
+offset_top = 120.0
+offset_right = 219.0
+offset_bottom = 184.0
 
 [node name="Ishtu" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 350.0
+offset_left = 330.0
 offset_top = 120.0
-offset_right = 414.0
+offset_right = 394.0
 offset_bottom = 184.0
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]

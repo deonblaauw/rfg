@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdn5g0yct3c8"]
+
+[ext_resource type="Script" path="res://Utility/character_db.gd" id="1_hvc38"]
+
+[node name="character_db" type="Node"]
+script = ExtResource("1_hvc38")

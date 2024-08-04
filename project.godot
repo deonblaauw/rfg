@@ -19,11 +19,13 @@ config/icon="res://icon.svg"
 
 UpgradeDb="*res://Utility/upgrade_db.tscn"
 Global="*res://Utility/global.gd"
+CharacterDb="*res://Utility/character_db.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
