@@ -109,16 +109,6 @@ var last_direction = Vector2.UP
 # Pause Panel
 @onready var pause_panel = $GUILayer/GUI/PausePanel
 
-
-#func _ready():
-	#death_panel.visible = false
-	#pause_panel.visible = false
-	#set_active_character("izra")
-	#upgrade_character("icespear1") # initial weapon
-	#hp = maxHp
-	#attack()
-	#set_exp_bar(experience , calculate_experience_cap())
-
 func init_char_dict():
 	# Initialize characters dictionary here, after @onready variables are set
 	characters = {

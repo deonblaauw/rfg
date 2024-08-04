@@ -1,22 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwegupmnlvun7"]
+[gd_scene load_steps=5 format=3 uid="uid://bwegupmnlvun7"]
 
 [ext_resource type="PackedScene" uid="uid://bmrp6lfqtslyu" path="res://Utility/basic_button.tscn" id="1_idy63"]
 [ext_resource type="Script" path="res://Title Screen/character_selection.gd" id="1_xi1hs"]
 [ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="2_0vkkc"]
-[ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="2_fktwd"]
-[ext_resource type="Script" path="res://Title Screen/Izra.gd" id="4_unp0q"]
-[ext_resource type="Texture2D" uid="uid://buphag71t3pmm" path="res://Assets/Textures/Player/ishtu/Necromancer_creativekind-Sheet.png" id="5_c1duh"]
-[ext_resource type="AudioStream" uid="uid://dkaytnpd3cnk6" path="res://Assets/Audio/GUI/hover.wav" id="6_w0r4a"]
-[ext_resource type="AudioStream" uid="uid://cvd6i7mt3utna" path="res://Assets/Audio/GUI/click.wav" id="7_r7x3u"]
-[ext_resource type="Script" path="res://Title Screen/Ishtu.gd" id="8_xrvrc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mctew"]
-atlas = ExtResource("2_fktwd")
-region = Rect2(3.58436, 0.0576134, 29.2346, 31.8683)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imp0j"]
-atlas = ExtResource("5_c1duh")
-region = Rect2(1331.73, 414.432, 59.8518, 83.1605)
+[ext_resource type="PackedScene" uid="uid://cgfhnk5b6buhj" path="res://Utility/character_select_button.tscn" id="4_h0j8y"]
 
 [node name="Character Selection" type="Control"]
 layout_mode = 3
@@ -52,75 +39,20 @@ offset_right = 360.0
 offset_bottom = 280.0
 text = "Back"
 
-[node name="Izra" type="ColorRect" parent="."]
+[node name="Izra" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 230.0
-offset_top = 120.0
-offset_right = 294.0
-offset_bottom = 184.0
-color = Color(0.290354, 0.290354, 0.290353, 1)
-script = ExtResource("4_unp0q")
+offset_left = 175.0
+offset_top = 117.0
+offset_right = 239.0
+offset_bottom = 181.0
 
-[node name="Label" type="Label" parent="Izra"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_0vkkc")
-theme_override_font_sizes/font_size = 15
-text = "Izra"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="btn_izra" type="TextureButton" parent="Izra"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-texture_normal = SubResource("AtlasTexture_mctew")
-stretch_mode = 3
-
-[node name="snd_hover" type="AudioStreamPlayer" parent="Izra"]
-stream = ExtResource("6_w0r4a")
-
-[node name="snd_click" type="AudioStreamPlayer" parent="Izra"]
-stream = ExtResource("7_r7x3u")
-
-[node name="Ishtu" type="ColorRect" parent="."]
+[node name="Ishtu" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
 offset_left = 350.0
 offset_top = 120.0
 offset_right = 414.0
 offset_bottom = 184.0
-color = Color(0.290196, 0.290196, 0.290196, 1)
-script = ExtResource("8_xrvrc")
-
-[node name="Label" type="Label" parent="Ishtu"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_0vkkc")
-theme_override_font_sizes/font_size = 15
-text = "Ishtu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="btn_ishtu" type="TextureButton" parent="Ishtu"]
-layout_mode = 0
-offset_right = 108.0
-offset_bottom = 107.0
-scale = Vector2(0.6, 0.6)
-texture_normal = SubResource("AtlasTexture_imp0j")
-stretch_mode = 3
-
-[node name="snd_hover" type="AudioStreamPlayer" parent="Ishtu"]
-stream = ExtResource("6_w0r4a")
-
-[node name="snd_click" type="AudioStreamPlayer" parent="Ishtu"]
-stream = ExtResource("7_r7x3u")
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
-[connection signal="mouse_entered" from="Izra/btn_izra" to="Izra" method="_on_btn_izra_mouse_entered"]
-[connection signal="mouse_exited" from="Izra/btn_izra" to="Izra" method="_on_btn_izra_mouse_exited"]
-[connection signal="pressed" from="Izra/btn_izra" to="." method="_on_btn_izra_pressed"]
-[connection signal="mouse_entered" from="Ishtu/btn_ishtu" to="Ishtu" method="_on_btn_ishtu_mouse_entered"]
-[connection signal="mouse_exited" from="Ishtu/btn_ishtu" to="Ishtu" method="_on_btn_ishtu_mouse_exited"]
-[connection signal="pressed" from="Ishtu/btn_ishtu" to="." method="_on_btn_ishtu_pressed"]
+[connection signal="char_select_click_end" from="Izra" to="." method="_on_izra_char_select_click_end"]
+[connection signal="char_select_click_end" from="Ishtu" to="." method="_on_ishtu_char_select_click_end"]
