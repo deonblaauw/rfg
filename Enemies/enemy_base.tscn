@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://coapcvn5v0yqw"]
+
+[ext_resource type="Texture2D" uid="uid://m48ttfw6ov11" path="res://Assets/Textures/Enemy/kolbold_weak.png" id="2_q1jc8"]
+[ext_resource type="PackedScene" uid="uid://b7fn7x0620o70" path="res://Utility/hit_box.tscn" id="3_gy25w"]
+[ext_resource type="PackedScene" uid="uid://ci0lyi4ieonoi" path="res://Utility/hurt_box.tscn" id="4_605uy"]
+[ext_resource type="AudioStream" uid="uid://btnn0022u4vpn" path="res://Assets/Audio/SoundEffect/enemy_hit.ogg" id="5_knvyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc0uk"]
+atlas = ExtResource("2_q1jc8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjgcp"]
+atlas = ExtResource("2_q1jc8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2fba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc0uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjgcp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66i8d"]
+size = Vector2(10, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vy4n"]
+size = Vector2(28, 30.6667)
+
+[node name="enemy_base" type="Node2D"]
+scale = Vector2(0.9, 0.9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i2fba")
+autoplay = "default"
+
+[node name="HitBox" parent="." instance=ExtResource("3_gy25w")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(1, 3.5)
+shape = SubResource("RectangleShape2D_66i8d")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_605uy")]
+collision_layer = 4
+collision_mask = 2
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.666667, 2)
+shape = SubResource("RectangleShape2D_2vy4n")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_knvyu")
+volume_db = -20.0
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HitBox"]
+[editable path="HurtBox"]

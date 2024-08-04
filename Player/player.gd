@@ -84,7 +84,7 @@ var last_direction = Vector2.UP
 @onready var lbl_level = $GUILayer/GUI/ExperienceBar/lbl_level
 
 # GUI - LevelUp
-@onready var lbl_levelup = $GUILayer/GUI/LevelUp/lbl_levelup
+@onready var lbl_levelup = $GUILayer/GUI/LevelPanel/lbl_levelup
 @onready var upgrade_options_gui = $GUILayer/GUI/LevelPanel/UpgradeOptions
 @onready var snd_levelup = $GUILayer/GUI/LevelPanel/snd_levelup
 @onready var level_panel = $GUILayer/GUI/LevelPanel
@@ -99,9 +99,13 @@ var last_direction = Vector2.UP
 @onready var snd_victory = $GUILayer/GUI/DeathPanel/snd_victory
 @onready var snd_lose = $GUILayer/GUI/DeathPanel/snd_lose
 
+# Pause Panel
+@onready var pause_panel = $GUILayer/GUI/PausePanel
+
 
 func _ready():
 	death_panel.visible = false
+	pause_panel.visible = false
 	upgrade_character("icespear1") # initial weapon
 	hp = maxHp
 	attack()
@@ -449,3 +453,15 @@ func death():
 func _on_btn_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://Title Screen/menu.tscn")
+
+# pause panel handling
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == Key.KEY_ESCAPE:
+			pause_panel.visible = true
+			get_tree().paused = true
+
+			
+func _on_btn_resume_click_end():
+	get_tree().paused = false
+	pause_panel.visible = false

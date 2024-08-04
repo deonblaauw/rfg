@@ -399,6 +399,39 @@ offset_right = 140.0
 offset_bottom = 231.0
 text = "Menu"
 
+[node name="PausePanel" type="Panel" parent="GUILayer/GUI"]
+process_mode = 2
+layout_mode = 0
+offset_left = 222.0
+offset_top = 69.0
+offset_right = 422.0
+offset_bottom = 319.0
+
+[node name="lbl_Paused" type="Label" parent="GUILayer/GUI/PausePanel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_60m7o")
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_menu" parent="GUILayer/GUI/PausePanel" instance=ExtResource("12_fflwm")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 140.0
+offset_bottom = 231.0
+text = "Menu"
+
+[node name="btn_resume" parent="GUILayer/GUI/PausePanel" instance=ExtResource("12_fflwm")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 140.0
+offset_right = 140.0
+offset_bottom = 171.0
+text = "Resume"
+
 [node name="lblTimer" type="Label" parent="GUILayer/GUI"]
 layout_mode = 0
 offset_left = 280.0
@@ -441,5 +474,7 @@ columns = 10
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 [connection signal="click_end" from="GUILayer/GUI/DeathPanel/btn_menu" to="." method="_on_btn_menu_click_end"]
+[connection signal="click_end" from="GUILayer/GUI/PausePanel/btn_menu" to="." method="_on_btn_menu_click_end"]
+[connection signal="click_end" from="GUILayer/GUI/PausePanel/btn_resume" to="." method="_on_btn_resume_click_end"]
 
 [editable path="HurtBox"]
