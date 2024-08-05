@@ -39,7 +39,7 @@ const UPGRADES = {
 	"javelin1": {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Javelin",
-		"details": "A magical javelin will follow you attacking enemies in a straight line",
+		"details": "A magical javelin will follow you attacking two enemies in a straight line",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "weapon"

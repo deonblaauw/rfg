@@ -12,6 +12,7 @@ var attack_size = 1.0
 var speed = 0
 
 ## Javelin-specific
+var return_speed = 0
 var paths = 1.0 # amount of attacks javelin does while in attack mode
 var attack_speed = 4.0
 
@@ -19,7 +20,6 @@ var target = Vector2.ZERO
 var target_array = []
 
 var angle = Vector2.ZERO
-var reset_position = Vector2.ZERO
 
 var sprite_jav_regular = preload("res://Assets/Textures/Items/Weapons/javelin_3_new.png")
 var sprite_jav_attack = preload("res://Assets/Textures/Items/Weapons/javelin_3_new_attack.png")
@@ -28,13 +28,11 @@ var sprite_jav_attack = preload("res://Assets/Textures/Items/Weapons/javelin_3_n
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var attack_timer = $AttackTimer
 @onready var change_direction_timer = $ChangeDirectionTimer
-@onready var reset_position_timer = $ResetPositionTimer
 @onready var snd_attack = $snd_attack
 
 signal remove_from_array(object)
 
 func _ready():
-	_on_reset_position_timer_timeout()
 	update_javelin()
 	
 func update_javelin():
@@ -46,7 +44,7 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 10
 			knockback_amount = 100
-			paths = 1
+			paths = 2
 			attack_size = 1.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1-player.spell_cooldown)
 		2:
@@ -54,7 +52,7 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 10
 			knockback_amount = 100
-			paths = 2
+			paths = 3
 			attack_size = 1.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1-player.spell_cooldown)
 		3:
@@ -62,7 +60,7 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 10
 			knockback_amount = 100
-			paths = 3
+			paths = 4
 			attack_size = 1.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1-player.spell_cooldown)
 		4:
@@ -70,7 +68,7 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 15
 			knockback_amount = 120
-			paths = 3
+			paths = 4
 			attack_size = 1.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1-player.spell_cooldown)
 	
@@ -80,21 +78,51 @@ func update_javelin():
 	# Javelin speeds up with player
 	if player.has_method("get_movement_speed"):
 		speed = player.get_movement_speed() + base_speed
-	
+
 
 func _physics_process(delta):
 	if target_array.size() > 0:
-		position += angle * speed * delta	
+		# Move towards target in attack mode
+		position += angle * speed * delta
 	else:
-		var player_angle = global_position.direction_to(reset_position)
-		var distance_diff = global_position - player.global_position
-		var return_speed = 20
-		if abs(distance_diff.x) > 500 or abs(distance_diff.y) > 500:
-			return_speed = 100
-		
-		position += player_angle * return_speed * delta
-		rotation = global_position.direction_to(player.global_position).angle() + deg_to_rad(135)
-		
+		# Calculate direction and distance to the player's reset position
+		var direction_to_player = global_position.direction_to(player.global_position)
+		var distance_to_player = global_position.distance_to(player.global_position)
+
+		# Define parameters for smooth movement
+		var deadband_radius = 50.0
+		var min_return_speed = 10.0
+		var max_return_speed = 300.0
+		var speed_smoothing = 5.0
+
+		# Determine desired speed based on distance
+		var desired_speed = min_return_speed
+		if distance_to_player > deadband_radius:
+			desired_speed = speed + (distance_to_player - deadband_radius) * 0.1
+			desired_speed = min(desired_speed, max_return_speed)
+
+		# Smoothly adjust speed towards desired speed
+		return_speed = lerpf(return_speed, desired_speed, delta * speed_smoothing)
+
+		# Update position
+		var movement = direction_to_player * return_speed * delta
+		position += movement
+
+		## Ensure the javelin stays within bounds
+		#var viewport_rect = get_viewport_rect()
+		#if position.x < 0:
+			#position.x = 0
+		#if position.y < 0:
+			#position.y = 0
+		#if position.x > viewport_rect.size.x:
+			#position.x = viewport_rect.size.x
+		#if position.y > viewport_rect.size.y:
+			#position.y = viewport_rect.size.y
+
+		# Update rotation to face player
+		rotation = direction_to_player.angle() + deg_to_rad(135)
+
+
 # javelin doesn't take damage by hitting enemies
 func enemy_hit(_charge = 1):
 	pass
@@ -150,18 +178,3 @@ func _on_change_direction_timer_timeout():
 		change_direction_timer.stop()
 		attack_timer.start()
 		enable_attack(false)
-
-
-func _on_reset_position_timer_timeout():
-	var choose_direction = randi() % 4
-	reset_position = player.global_position
-	
-	match choose_direction:
-		0:
-			reset_position.x += 50.0
-		1:
-			reset_position.x -= 50.0
-		2:
-			reset_position.y += 50.0
-		3:
-			reset_position.y -= 50.0

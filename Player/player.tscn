@@ -398,7 +398,7 @@ frame_progress = 0.520929
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_3x1av")
 autoplay = "default"
-frame_progress = 0.146215
+frame_progress = 0.14267
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")

@@ -19,20 +19,14 @@ texture = ExtResource("1_cxo31")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0.250001)
 rotation = -0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4bfko")
 disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 4.0
 one_shot = true
 autostart = true
 
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
-
-[node name="ResetPositionTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
 
 [node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kg7b4")
@@ -40,4 +34,3 @@ volume_db = -10.0
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
-[connection signal="timeout" from="ResetPositionTimer" to="." method="_on_reset_position_timer_timeout"]
