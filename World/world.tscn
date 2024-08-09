@@ -1,89 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://gv3nxhxjj15g"]
+[gd_scene load_steps=7 format=3 uid="uid://gv3nxhxjj15g"]
 
 [ext_resource type="Texture2D" uid="uid://cawut6x8mhlwb" path="res://Assets/Textures/dirt_full_new.png" id="1_pkoi1"]
 [ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="2_2kvyb"]
-[ext_resource type="PackedScene" uid="uid://0wmftqvdiqo8" path="res://Enemies/enemy_kobold_weak.tscn" id="3_6yeto"]
 [ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="4_2ftuo"]
-[ext_resource type="PackedScene" uid="uid://bau1tfxv4qvbo" path="res://Enemies/enemy_bat.tscn" id="4_nsqdi"]
-[ext_resource type="Script" path="res://Utility/spawn_info.gd" id="5_fj1pj"]
+[ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="4_u8o3e"]
 [ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="6_2drv2"]
-[ext_resource type="PackedScene" uid="uid://drjieinylpumd" path="res://Enemies/enemy_kobold_strong.tscn" id="7_xirlc"]
-[ext_resource type="PackedScene" uid="uid://din526jqcag2g" path="res://Enemies/enemy_cyclops.tscn" id="8_lhh2m"]
-[ext_resource type="PackedScene" uid="uid://bhtwowbpnntv4" path="res://Enemies/enemy_juggernaut.tscn" id="9_e77n5"]
-[ext_resource type="PackedScene" uid="uid://csomkf6ugraqy" path="res://Enemies/enemy_super.tscn" id="10_y2wtj"]
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="12_504vc"]
-
-[sub_resource type="Resource" id="Resource_h6yrs"]
-script = ExtResource("5_fj1pj")
-time_start = 0
-time_end = 30
-enemy = ExtResource("4_nsqdi")
-spawn_amount = 2
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_g2otk"]
-script = ExtResource("5_fj1pj")
-time_start = 30
-time_end = 210
-enemy = ExtResource("3_6yeto")
-spawn_amount = 4
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_q1x4t"]
-script = ExtResource("5_fj1pj")
-time_start = 60
-time_end = 180
-enemy = ExtResource("7_xirlc")
-spawn_amount = 4
-spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_ivbsa"]
-script = ExtResource("5_fj1pj")
-time_start = 180
-time_end = 210
-enemy = ExtResource("8_lhh2m")
-spawn_amount = 4
-spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_5cyg7"]
-script = ExtResource("5_fj1pj")
-time_start = 210
-time_end = 240
-enemy = ExtResource("7_xirlc")
-spawn_amount = 4
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_li05e"]
-script = ExtResource("5_fj1pj")
-time_start = 240
-time_end = 270
-enemy = ExtResource("8_lhh2m")
-spawn_amount = 2
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_6t73h"]
-script = ExtResource("5_fj1pj")
-time_start = 240
-time_end = 240
-enemy = ExtResource("9_e77n5")
-spawn_amount = 2
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_x3w1c"]
-script = ExtResource("5_fj1pj")
-time_start = 270
-time_end = 300
-enemy = ExtResource("8_lhh2m")
-spawn_amount = 10
-spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_s5w0b"]
-script = ExtResource("5_fj1pj")
-time_start = 300
-time_end = 300
-enemy = ExtResource("10_y2wtj")
-spawn_amount = 1
-spawn_delay = 0
 
 [node name="World" type="Node2D"]
 
@@ -98,7 +20,7 @@ region_filter_clip_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_2kvyb")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_2ftuo")]
-spawns = Array[ExtResource("5_fj1pj")]([SubResource("Resource_h6yrs"), SubResource("Resource_g2otk"), SubResource("Resource_q1x4t"), SubResource("Resource_ivbsa"), SubResource("Resource_5cyg7"), SubResource("Resource_li05e"), SubResource("Resource_6t73h"), SubResource("Resource_x3w1c"), SubResource("Resource_s5w0b")])
+spawn_data_resource = ExtResource("4_u8o3e")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

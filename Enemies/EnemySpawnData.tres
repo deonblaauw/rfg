@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="EnemySpawnData" load_steps=8 format=3 uid="uid://cfq5vla4naxnf"]
+
+[ext_resource type="Script" path="res://Enemies/EnemySpawnData.gd" id="1_iv1u3"]
+[ext_resource type="PackedScene" uid="uid://bau1tfxv4qvbo" path="res://Enemies/enemy_bat.tscn" id="2_mrokd"]
+[ext_resource type="PackedScene" uid="uid://0wmftqvdiqo8" path="res://Enemies/enemy_kobold_weak.tscn" id="3_on1ys"]
+[ext_resource type="PackedScene" uid="uid://drjieinylpumd" path="res://Enemies/enemy_kobold_strong.tscn" id="4_iiow0"]
+[ext_resource type="PackedScene" uid="uid://din526jqcag2g" path="res://Enemies/enemy_cyclops.tscn" id="5_ksgwi"]
+[ext_resource type="PackedScene" uid="uid://bhtwowbpnntv4" path="res://Enemies/enemy_juggernaut.tscn" id="6_dlih1"]
+[ext_resource type="PackedScene" uid="uid://csomkf6ugraqy" path="res://Enemies/enemy_super.tscn" id="7_25rws"]
+
+[resource]
+script = ExtResource("1_iv1u3")
+spawn_data = Array[Dictionary]([{
+"enemy_scene": ExtResource("2_mrokd"),
+"spawn_amount": 2,
+"spawn_delay": 0,
+"time_end": 30,
+"time_start": 0
+}, {
+"enemy_scene": ExtResource("3_on1ys"),
+"spawn_amount": 4,
+"spawn_delay": 0,
+"time_end": 210,
+"time_start": 30
+}, {
+"enemy_scene": ExtResource("4_iiow0"),
+"spawn_amount": 4,
+"spawn_delay": 1,
+"time_end": 180,
+"time_start": 60
+}, {
+"enemy_scene": ExtResource("5_ksgwi"),
+"spawn_amount": 4,
+"spawn_delay": 2,
+"time_end": 210,
+"time_start": 180
+}, {
+"enemy_scene": ExtResource("4_iiow0"),
+"spawn_amount": 4,
+"spawn_delay": 0,
+"time_end": 240,
+"time_start": 210
+}, {
+"enemy_scene": ExtResource("5_ksgwi"),
+"spawn_amount": 2,
+"spawn_delay": 0,
+"time_end": 270,
+"time_start": 240
+}, {
+"enemy_scene": ExtResource("6_dlih1"),
+"spawn_amount": 2,
+"spawn_delay": 0,
+"time_end": 240,
+"time_start": 240
+}, {
+"enemy_scene": ExtResource("5_ksgwi"),
+"spawn_amount": 10,
+"spawn_delay": 0,
+"time_end": 300,
+"time_start": 270
+}, {
+"enemy_scene": ExtResource("7_25rws"),
+"spawn_amount": 1,
+"spawn_delay": 0,
+"time_end": 300,
+"time_start": 300
+}])
