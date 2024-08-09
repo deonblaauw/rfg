@@ -18,7 +18,7 @@ script = ExtResource("5_fj1pj")
 time_start = 0
 time_end = 30
 enemy = ExtResource("4_nsqdi")
-spawn_amount = 1
+spawn_amount = 2
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_g2otk"]
@@ -26,7 +26,7 @@ script = ExtResource("5_fj1pj")
 time_start = 30
 time_end = 210
 enemy = ExtResource("3_6yeto")
-spawn_amount = 2
+spawn_amount = 4
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_q1x4t"]
@@ -34,7 +34,7 @@ script = ExtResource("5_fj1pj")
 time_start = 60
 time_end = 180
 enemy = ExtResource("7_xirlc")
-spawn_amount = 1
+spawn_amount = 4
 spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_ivbsa"]
@@ -42,7 +42,7 @@ script = ExtResource("5_fj1pj")
 time_start = 180
 time_end = 210
 enemy = ExtResource("8_lhh2m")
-spawn_amount = 1
+spawn_amount = 4
 spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_5cyg7"]
@@ -50,7 +50,7 @@ script = ExtResource("5_fj1pj")
 time_start = 210
 time_end = 240
 enemy = ExtResource("7_xirlc")
-spawn_amount = 2
+spawn_amount = 4
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_li05e"]
@@ -58,7 +58,7 @@ script = ExtResource("5_fj1pj")
 time_start = 240
 time_end = 270
 enemy = ExtResource("8_lhh2m")
-spawn_amount = 1
+spawn_amount = 2
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_6t73h"]
@@ -66,7 +66,7 @@ script = ExtResource("5_fj1pj")
 time_start = 240
 time_end = 240
 enemy = ExtResource("9_e77n5")
-spawn_amount = 1
+spawn_amount = 2
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_x3w1c"]
@@ -74,7 +74,7 @@ script = ExtResource("5_fj1pj")
 time_start = 270
 time_end = 300
 enemy = ExtResource("8_lhh2m")
-spawn_amount = 5
+spawn_amount = 10
 spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_s5w0b"]
@@ -108,5 +108,5 @@ experience = 50
 
 [node name="snd_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_504vc")
-volume_db = -15.0
+volume_db = -20.0
 autoplay = true
