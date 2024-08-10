@@ -7,7 +7,7 @@ class_name EnemySpawnData
 	{
 		"enemy_scene": preload("res://Enemies/enemy_bat.tscn"),
 		"time_start": 0,
-		"time_end": 30,
+		"time_end": 50,
 		"spawn_delay": 0,
 		"spawn_amount": 2
 	},
