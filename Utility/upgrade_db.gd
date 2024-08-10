@@ -63,7 +63,7 @@ const UPGRADES = {
 	"javelin4": {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Javelin",
-		"details": "The javelin now does + 5 damage per attack and causes 20% additional knockback",
+		"details": "The javelin now does + 5 damage per attack, causes 20% additional knockback and hits one additional enemy",
 		"level": "Level: 4",
 		"prerequisite": ["javelin3"],
 		"type": "weapon"
@@ -242,6 +242,22 @@ const UPGRADES = {
 		"details": "Your spells now spawn an additional attack",
 		"level": "Level: 2",
 		"prerequisite": ["ring1"],
+		"type": "upgrade"
+	},
+	"ring3": {
+		"icon": ICON_PATH + "urand_mage.png",
+		"displayname": "Ring",
+		"details": "Your spells now spawn an additional attack",
+		"level": "Level: 3",
+		"prerequisite": ["ring2"],
+		"type": "upgrade"
+	},
+	"ring4": {
+		"icon": ICON_PATH + "urand_mage.png",
+		"displayname": "Ring",
+		"details": "Your spells now spawn an additional attack",
+		"level": "Level: 4",
+		"prerequisite": ["ring3"],
 		"type": "upgrade"
 	},
 	"food": {

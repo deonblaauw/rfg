@@ -68,7 +68,7 @@ func update_javelin():
 			base_speed = 200.0
 			damage = 15
 			knockback_amount = 120
-			paths = 4
+			paths = 5
 			attack_size = 1.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1-player.spell_cooldown)
 	

@@ -1,6 +1,14 @@
 extends Node2D
 
-enum SpawnMode {Default5Min, Smooth5Min, Default10MinPerplexed, Default10MinGPT}
+enum SpawnMode {
+	Default5Min,
+	Smooth5Min,
+	Default10MinPerplexed,
+	Default10MinGPT,
+	Smoothed10MinGPT
+}
+
+
 @export var active_spawn_mode : SpawnMode
 
 @export var spawn_data_resource: Resource
@@ -33,13 +41,18 @@ func spawn_enemies():
 			spawn_data = spawn_data_resource.default_perplexity_spawn_10_min_game
 		SpawnMode.Default10MinGPT:
 			spawn_data = spawn_data_resource.default_gpt_spawn_10_min_game
+		SpawnMode.Smoothed10MinGPT:
+			spawn_data = spawn_data_resource.smoothed_gpt_spawn_10_min_game
 		_:
 			print("Something went wrong!")
 	
 	if not spawn_data:
 		print("fail")
 		return
-	
+	Global.current_world_end_time = spawn_data[-1]["time_end"]
+	#print("xxxx")
+	#print(Global.current_world_end_time)
+	#print(spawn_data[-1]["time_end"])
 	for spawn_info in spawn_data:
 		if time >= spawn_info["time_start"] and time <= spawn_info["time_end"]:
 			if "spawn_delay_counter" not in spawn_info:

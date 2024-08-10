@@ -22,7 +22,7 @@ region_filter_clip_enabled = true
 [node name="Player" parent="." instance=ExtResource("4_ibtdb")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_yclgx")]
-active_spawn_mode = 2
+active_spawn_mode = 4
 spawn_data_resource = ExtResource("6_r56hr")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]

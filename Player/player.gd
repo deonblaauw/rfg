@@ -144,6 +144,7 @@ func _ready():
 	
 	
 func attack():
+	
 	if icespear_level > 0:
 		ice_spear_timer.wait_time = icespear_attack_speed * (1 - spell_cooldown)
 		if ice_spear_timer.is_stopped():
@@ -435,7 +436,7 @@ func upgrade_character(upgrade):
 			spell_size += 0.10
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05
-		"ring1","ring2":
+		"ring1","ring2","ring3","ring4":
 			additional_attacks += 1
 		"food":
 			hp += 20
@@ -515,7 +516,7 @@ func death():
 	tween.tween_property(death_panel,"position",Vector2(220,50),3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
 	
-	if time > 300:
+	if time > Global.current_world_end_time:
 		lbl_result.text = "You Win!"
 		snd_victory.play()
 	else:
