@@ -4,5 +4,5 @@ extends Node2D
 func _ready():
 	var new_music = preload("res://Assets/Audio/Music/battleThemeA.mp3")
 	MusicPlayer.play_music(new_music)
-	MusicPlayer.set_volume(0.2)  # Set volume to 30%
+	MusicPlayer.set_volume(0.1)  # Set volume to 30%
 

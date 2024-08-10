@@ -50,6 +50,17 @@ theme_override_font_sizes/font_size = 8
 text = "Grassy lands, bats and monsters. Grab your pearls!"
 autowrap_mode = 3
 
+[node name="lbl_game_type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 23.0
+offset_right = 56.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("6_wuuei")
+theme_override_font_sizes/font_size = 8
+text = "Forever and a day"
+autowrap_mode = 3
+
 [node name="lbl_title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 2.0

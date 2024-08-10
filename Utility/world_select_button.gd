@@ -3,6 +3,7 @@ extends ColorRect
 @onready var lbl_description = $lbl_description
 @onready var lbl_title = $lbl_title
 @onready var icon = $Icon
+@onready var lbl_game_type = $lbl_game_type
 
 @onready var snd_hover = $snd_hover
 @onready var snd_click = $snd_click
