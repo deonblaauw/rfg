@@ -39,20 +39,28 @@ offset_right = 360.0
 offset_bottom = 330.0
 text = "Back"
 
-[node name="Grasslands" parent="." instance=ExtResource("4_y22jc")]
+[node name="GrasslandsTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 110.0
 offset_right = 187.0
 offset_bottom = 177.0
 
-[node name="Acacia" parent="." instance=ExtResource("4_y22jc")]
+[node name="AcaciaTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
 offset_left = 365.0
 offset_top = 110.0
 offset_right = 424.0
 offset_bottom = 177.0
 
+[node name="InferiusTile" parent="." instance=ExtResource("4_y22jc")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 205.0
+offset_right = 299.0
+offset_bottom = 272.0
+
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
-[connection signal="world_select_click_end" from="Grasslands" to="." method="_on_grasslands_world_select_click_end"]
-[connection signal="world_select_click_end" from="Acacia" to="." method="_on_acacia_world_select_click_end"]
+[connection signal="world_select_click_end" from="GrasslandsTile" to="." method="_on_grasslands_world_select_click_end"]
+[connection signal="world_select_click_end" from="AcaciaTile" to="." method="_on_acacia_world_select_click_end"]
+[connection signal="world_select_click_end" from="InferiusTile" to="." method="_on_inferius_tile_world_select_click_end"]

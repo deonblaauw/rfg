@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfoxlqp5e8if8"]
+
+[ext_resource type="Script" path="res://World/world_control.gd" id="1_v85pl"]
+[ext_resource type="Texture2D" uid="uid://c50eb6ahgwp7s" path="res://Assets/Textures/World/backgrounds 256x256/256_Grass 03 Mud.png" id="2_ifikp"]
+[ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="4_ibtdb"]
+[ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="5_yclgx"]
+[ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="6_r56hr"]
+[ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="7_2nfhi"]
+[ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="8_xast0"]
+
+[node name="Infernius World" type="Node2D"]
+script = ExtResource("1_v85pl")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("2_ifikp")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8000, 8000)
+region_filter_clip_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("4_ibtdb")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_yclgx")]
+active_spawn_mode = 2
+spawn_data_resource = ExtResource("6_r56hr")
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="ExperienceGem" parent="Loot" instance=ExtResource("7_2nfhi")]
+position = Vector2(423, -79)
+experience = 50
+
+[node name="snd_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xast0")
+volume_db = -20.0
+autoplay = true
