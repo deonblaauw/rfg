@@ -14,7 +14,7 @@ spawn_data = Array[Dictionary]([{
 "enemy_scene": ExtResource("2_mrokd"),
 "spawn_amount": 2,
 "spawn_delay": 0,
-"time_end": 30,
+"time_end": 50,
 "time_start": 0
 }, {
 "enemy_scene": ExtResource("3_on1ys"),

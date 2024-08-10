@@ -16,12 +16,9 @@ func _on_snd_click_finished():
 
 func _on_btn_select_mouse_entered():
 	snd_hover.play()
-	modulate = Color(0.8, 0.8, 0.8)
-
 
 func _on_btn_select_mouse_exited():
-	modulate = Color(1.0, 1.0, 1.0)
-
-
+	pass
+	
 func _on_btn_select_pressed():
 	snd_click.play()

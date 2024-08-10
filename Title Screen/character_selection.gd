@@ -1,7 +1,7 @@
 extends Control
 
-var level = "res://World/world.tscn"
 var lvl_menu = "res://Title Screen/menu.tscn"
+var lvl_menu_world_selection = "res://Title Screen/world_selection.tscn"
 
 @onready var izra = $Izra
 @onready var ishtu = $Ishtu
@@ -39,4 +39,4 @@ func _on_bob_char_select_click_end():
 
 func select_character(char_name):
 	Global.selected_character = char_name
-	get_tree().change_scene_to_file(level)
+	get_tree().change_scene_to_file(lvl_menu_world_selection)

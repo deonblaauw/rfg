@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmnajvrbmwot2"]
+
+[ext_resource type="Script" path="res://Title Screen/world_selection.gd" id="1_xx37e"]
+[ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="2_kmuex"]
+[ext_resource type="PackedScene" uid="uid://bmrp6lfqtslyu" path="res://Utility/basic_button.tscn" id="3_uf6mp"]
+[ext_resource type="PackedScene" uid="uid://0utospo4rkun" path="res://Utility/world_select_button.tscn" id="4_y22jc"]
+
+[node name="World Selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xx37e")
+
+[node name="Label" type="Label" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_kmuex")
+theme_override_font_sizes/font_size = 72
+text = "Select Your Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 362.0
+color = Color(0.564706, 0.231373, 0.101961, 1)
+
+[node name="btn_back" parent="." instance=ExtResource("3_uf6mp")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 300.0
+offset_right = 360.0
+offset_bottom = 330.0
+text = "Back"
+
+[node name="Grasslands" parent="." instance=ExtResource("4_y22jc")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 110.0
+offset_right = 187.0
+offset_bottom = 177.0
+
+[node name="Acacia" parent="." instance=ExtResource("4_y22jc")]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 110.0
+offset_right = 424.0
+offset_bottom = 177.0
+
+[connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
+[connection signal="world_select_click_end" from="Grasslands" to="." method="_on_grasslands_world_select_click_end"]
+[connection signal="world_select_click_end" from="Acacia" to="." method="_on_acacia_world_select_click_end"]

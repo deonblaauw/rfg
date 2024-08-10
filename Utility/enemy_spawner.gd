@@ -1,5 +1,8 @@
 extends Node2D
 
+enum SpawnMode {Default5Min, Default10MinPerplexed, Default10MinGPT}
+@export var active_spawn_mode : SpawnMode
+
 @export var spawn_data_resource: Resource
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -19,7 +22,21 @@ func spawn_enemies():
 	if not spawn_data_resource:
 		return
 
-	var spawn_data = spawn_data_resource.spawn_data
+	var spawn_data = null
+	
+	match active_spawn_mode:
+		SpawnMode.Default5Min:
+			spawn_data = spawn_data_resource.default_spawn_5_min_game
+		SpawnMode.Default10MinPerplexed:
+			spawn_data = spawn_data_resource.default_perplexity_spawn_10_min_game
+		SpawnMode.Default10MinGPT:
+			spawn_data = spawn_data_resource.default_gpt_spawn_10_min_game
+		_:
+			print("Something went wrong!")
+	
+	if not spawn_data:
+		print("fail")
+		return
 	
 	for spawn_info in spawn_data:
 		if time >= spawn_info["time_start"] and time <= spawn_info["time_end"]:

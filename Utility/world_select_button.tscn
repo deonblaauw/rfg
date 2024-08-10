@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://0utospo4rkun"]
+
+[ext_resource type="Script" path="res://Utility/world_select_button.gd" id="1_bha3q"]
+[ext_resource type="Texture2D" uid="uid://cawut6x8mhlwb" path="res://Assets/Textures/dirt_full_new.png" id="2_64s0b"]
+[ext_resource type="Texture2D" uid="uid://b67jserymk5n6" path="res://Assets/Textures/GUI/EmptyItem.png" id="2_66ad3"]
+[ext_resource type="AudioStream" uid="uid://dkaytnpd3cnk6" path="res://Assets/Audio/GUI/hover.wav" id="4_gyfed"]
+[ext_resource type="AudioStream" uid="uid://cvd6i7mt3utna" path="res://Assets/Audio/GUI/click.wav" id="5_y2sv6"]
+[ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="6_wuuei"]
+
+[node name="World Select Button" type="ColorRect"]
+offset_right = 59.0
+offset_bottom = 67.0
+color = Color(0.0646466, 0.313287, 0.441678, 1)
+script = ExtResource("1_bha3q")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 67.0
+texture = ExtResource("2_64s0b")
+expand_mode = 1
+
+[node name="InfoPanelBorder" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 4.0
+offset_right = 149.0
+offset_bottom = 63.0
+texture = ExtResource("2_66ad3")
+
+[node name="btn_select" type="Button" parent="."]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 67.0
+
+[node name="snd_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gyfed")
+
+[node name="snd_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y2sv6")
+
+[node name="lbl_description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 12.0
+offset_right = 137.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("6_wuuei")
+theme_override_font_sizes/font_size = 8
+text = "Grassy lands, bats and monsters. Grab your pearls!"
+autowrap_mode = 3
+
+[node name="lbl_title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 64.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("6_wuuei")
+theme_override_font_sizes/font_size = 15
+text = "Grasslands"
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="btn_select" to="." method="_on_btn_select_mouse_entered"]
+[connection signal="mouse_exited" from="btn_select" to="." method="_on_btn_select_mouse_exited"]
+[connection signal="pressed" from="btn_select" to="." method="_on_btn_select_pressed"]
+[connection signal="finished" from="snd_click" to="." method="_on_snd_click_finished"]

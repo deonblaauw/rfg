@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://gv3nxhxjj15g"]
+
+[ext_resource type="Texture2D" uid="uid://cawut6x8mhlwb" path="res://Assets/Textures/dirt_full_new.png" id="1_4jk0y"]
+[ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="2_c2m08"]
+[ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="3_53lh8"]
+[ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="4_eui8k"]
+[ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="5_xoka7"]
+[ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_fegiy"]
+
+[node name="Grasslands World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("1_4jk0y")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8000, 8000)
+region_filter_clip_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_c2m08")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_53lh8")]
+active_spawn_mode = 1
+spawn_data_resource = ExtResource("4_eui8k")
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="ExperienceGem" parent="Loot" instance=ExtResource("5_xoka7")]
+position = Vector2(423, -79)
+experience = 50
+
+[node name="snd_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fegiy")
+volume_db = -20.0
+autoplay = true
