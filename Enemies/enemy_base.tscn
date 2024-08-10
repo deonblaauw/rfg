@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coapcvn5v0yqw"]
+[gd_scene load_steps=10 format=3 uid="uid://dnwxx8xpc25td"]
 
 [ext_resource type="Texture2D" uid="uid://m48ttfw6ov11" path="res://Assets/Textures/Enemy/kolbold_weak.png" id="2_q1jc8"]
 [ext_resource type="PackedScene" uid="uid://b7fn7x0620o70" path="res://Utility/hit_box.tscn" id="3_gy25w"]

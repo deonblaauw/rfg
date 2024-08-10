@@ -6,6 +6,7 @@
 [node name="DamageNumber" type="Label"]
 offset_right = 40.0
 offset_bottom = 10.0
+theme_override_colors/font_color = Color(1, 0.627987, 0.571351, 1)
 theme_override_fonts/font = ExtResource("1_djn6h")
 theme_override_font_sizes/font_size = 8
 text = "50"

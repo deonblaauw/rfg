@@ -418,7 +418,7 @@ class_name EnemySpawnData
 	{
 		"enemy_scene": preload("res://Enemies/enemy_juggernaut.tscn"),
 		"time_start": 480,
-		"time_end": 510,
+		"time_end": 550,
 		"spawn_delay": 0,
 		"spawn_amount": 4,
 		"enemies_spawned": 120
@@ -426,7 +426,7 @@ class_name EnemySpawnData
 	{
 		"enemy_scene": preload("res://Enemies/enemy_cyclops.tscn"),
 		"time_start": 510,
-		"time_end": 540,
+		"time_end": 590,
 		"spawn_delay": 0,
 		"spawn_amount": 8,
 		"enemies_spawned": 240

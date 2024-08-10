@@ -14,7 +14,9 @@ extends CharacterBody2D
 
 var death_anim = preload("res://Enemies/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
-
+# Load the damage number scene
+var DamageNumber = preload("res://Utility/damage_number.tscn")
+	
 var knockback = Vector2.ZERO
 
 signal remove_from_array(object)
@@ -47,6 +49,7 @@ func animation(direction):
 
 
 func _on_hurt_box_hurt(damage , angle, knockback_amount):
+	show_damage_number(damage)
 	hp -= damage
 	knockback = angle * knockback_amount
 	#print("Monster hit: ", hp)
@@ -68,3 +71,32 @@ func death():
 	new_gem.experience = experience
 	loot_base.call_deferred("add_child",new_gem)
 	queue_free() # deletes this enemy
+	
+# Assuming this is in the enemy script
+
+func show_damage_number(damage: int):
+	# Instance the damage number
+	var damage_number_instance = DamageNumber.instantiate()
+	
+	# Set the damage value
+	damage_number_instance.set_damage(damage)
+	
+	# Add the damage number to the scene tree
+	get_parent().add_child(damage_number_instance)
+	
+	if damage <= 5:
+		damage_number_instance.set_color("white")
+	elif damage > 5 and damage <= 10:
+		damage_number_instance.set_color("yellow")
+	else:
+		damage_number_instance.set_color("red")
+	
+	# Convert the enemy's global position to local position relative to the parent
+	#var local_position = get_viewport().get_camera_2d().to_local(global_position)
+	
+	# Position it above the enemy with a slight offset
+	damage_number_instance.position = position + Vector2(0, 0)  # Adjust -20 as needed
+	damage_number_instance.show_number(position)
+
+
+

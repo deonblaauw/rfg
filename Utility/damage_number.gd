@@ -1,16 +1,30 @@
 extends Label
 
-# The duration of the damage number's existence
 @export var duration: float = 1.0
 
+
 func _ready():
-	# Animate the movement and fade out of the damage number
-	$Tween.tween_property(self, "position", position + Vector2(0, -50), duration, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.tween_property(self, "modulate:a", 0.0, duration, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	visible = false
 	
-	# Wait for the tween to complete, then free the instance
-	await $Tween.finished
+func show_number(pos):
+	visible = true
+	var tween = create_tween()
+	# Animate the position movement
+	tween.tween_property(self, "position", pos + Vector2(0, 0), duration)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	# Animate the fade-out effect
+	tween.tween_property(self, "modulate:a", 0.0, duration)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_OUT)
+
+	await tween.finished
 	queue_free()
+	
+
+func set_color(color):
+	self.add_theme_color_override("font_color", color)
 
 func set_damage(damage_value: int):
 	text = str(damage_value)
