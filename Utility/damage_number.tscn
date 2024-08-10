@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0lj82m53s1b7"]
+
+[ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="1_djn6h"]
+[ext_resource type="Script" path="res://Utility/damage_number.gd" id="1_v23gb"]
+
+[node name="DamageNumber" type="Label"]
+offset_right = 40.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("1_djn6h")
+theme_override_font_sizes/font_size = 8
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_v23gb")
