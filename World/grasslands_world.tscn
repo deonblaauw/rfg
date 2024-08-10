@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://gv3nxhxjj15g"]
+[gd_scene load_steps=8 format=3 uid="uid://gv3nxhxjj15g"]
 
+[ext_resource type="Script" path="res://World/world_control.gd" id="1_2i4h0"]
 [ext_resource type="Texture2D" uid="uid://cawut6x8mhlwb" path="res://Assets/Textures/dirt_full_new.png" id="1_4jk0y"]
 [ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="2_c2m08"]
 [ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="3_53lh8"]
@@ -8,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_fegiy"]
 
 [node name="Grasslands World" type="Node2D"]
+script = ExtResource("1_2i4h0")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
@@ -20,7 +22,6 @@ region_filter_clip_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_c2m08")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_53lh8")]
-active_spawn_mode = 1
 spawn_data_resource = ExtResource("4_eui8k")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]

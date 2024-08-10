@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 UpgradeDb="*res://Utility/upgrade_db.tscn"
 Global="*res://Utility/global.gd"
 CharacterDb="*res://Utility/character_db.gd"
+MusicPlayer="*res://Utility/MusicPlayer.tscn"
 
 [display]
 

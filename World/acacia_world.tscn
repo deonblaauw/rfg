@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://darclchdctcke"]
+[gd_scene load_steps=8 format=3 uid="uid://darclchdctcke"]
 
 [ext_resource type="Texture2D" uid="uid://d2ow18y8e83sh" path="res://Assets/Textures/World/backgrounds 256x256/256_Dirt Muddy 01.png" id="1_il02n"]
+[ext_resource type="Script" path="res://World/world_control.gd" id="1_reb8a"]
 [ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="2_gsn5b"]
 [ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="3_7w1jv"]
 [ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="4_5p4f8"]
@@ -8,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_xo0ai"]
 
 [node name="Acacia World" type="Node2D"]
+script = ExtResource("1_reb8a")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
@@ -20,7 +22,7 @@ region_filter_clip_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_gsn5b")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_7w1jv")]
-active_spawn_mode = 2
+active_spawn_mode = 1
 spawn_data_resource = ExtResource("4_5p4f8")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]

@@ -1,6 +1,6 @@
 extends Node2D
 
-enum SpawnMode {Default5Min, Default10MinPerplexed, Default10MinGPT}
+enum SpawnMode {Default5Min, Smooth5Min, Default10MinPerplexed, Default10MinGPT}
 @export var active_spawn_mode : SpawnMode
 
 @export var spawn_data_resource: Resource
@@ -27,6 +27,8 @@ func spawn_enemies():
 	match active_spawn_mode:
 		SpawnMode.Default5Min:
 			spawn_data = spawn_data_resource.default_spawn_5_min_game
+		SpawnMode.Smooth5Min:
+			spawn_data = spawn_data_resource.smooth_spawn_5_min_game
 		SpawnMode.Default10MinPerplexed:
 			spawn_data = spawn_data_resource.default_perplexity_spawn_10_min_game
 		SpawnMode.Default10MinGPT:
