@@ -15,21 +15,24 @@ func _ready():
 	var world_name = "Grasslands"
 	var icon_texture_path = "res://Assets/Textures/dirt_full_new.png"
 	var description = "Grassy lands, bats and monsters. Grab your pearls!"
-	var game_type = "Duration: 5 minutes"
+	var game_type = "Duration:
+		5 minutes"
 	setup_world_tile(grasslands_tile, world_name, description, game_type, icon_texture_path)
 	
 	# Acacia setup
 	world_name = "Acacia"
 	icon_texture_path = "res://Assets/Textures/World/backgrounds 256x256/256_Dirt Muddy 01.png"
 	description = "Endless monsters. Stone flooring. What's not to love!?"
-	game_type = "Duration: 5 minutes (harder)"
+	game_type = "Duration:
+		5 minutes (harder)"
 	setup_world_tile(acacia_tile, world_name, description, game_type, icon_texture_path)
 
 	# Infernius setup
 	world_name = "Infernius"
 	icon_texture_path = "res://Assets/Textures/World/backgrounds 256x256/256_Grass 03 Mud.png"
 	description = "Follow your heart, young adventurer. Unless you're Bob, then you're just old."
-	game_type = "Duration: 10 minutes (exp)"
+	game_type = "Duration:
+		10 minutes"
 	setup_world_tile(inferius_tile, world_name, description, game_type, icon_texture_path)
 
 	
