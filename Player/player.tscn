@@ -468,7 +468,7 @@ frame_progress = 0.14267
 
 [node name="AnimatedSpriteSamurai" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lp7dr")
-frame_progress = 0.645145
+frame_progress = 0.202003
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")
