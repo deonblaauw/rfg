@@ -3,12 +3,14 @@ extends Control
 @onready var grasslands_tile = $GrasslandsTile
 @onready var acacia_tile = $AcaciaTile
 @onready var inferius_tile = $InferiusTile
+@onready var makka_tile = $MakkaTile
 
 var lvl_menu_char_selection = "res://Title Screen/character_selection.tscn"
 
 var grasslands_scene = "res://World/grasslands_world.tscn"
 var acacia_scene = "res://World/acacia_world.tscn"
 var inferius_scene = "res://World/infernius_world.tscn"
+var makka_scene = "res://World/makka_world.tscn"
 
 func _ready():
 	# Grasslands setup
@@ -35,6 +37,14 @@ func _ready():
 		10 minutes"
 	setup_world_tile(inferius_tile, world_name, description, game_type, icon_texture_path)
 
+	# Makka setup
+	world_name = "Makka"
+	icon_texture_path = "res://Assets/Textures/World/backgrounds 256x256/256_Dirt Pebbles 02.png"
+	description = "Ancient sands and screwey foes"
+	game_type = "Duration:
+		5 minutes"
+	setup_world_tile(makka_tile, world_name, description, game_type, icon_texture_path)
+
 	
 func setup_world_tile(world_node, world_name, description, game_type, icon_texture_path):
 	world_node.lbl_title.text = world_name.capitalize()
@@ -48,10 +58,11 @@ func _on_grasslands_world_select_click_end():
 func _on_btn_back_click_end():
 	get_tree().change_scene_to_file(lvl_menu_char_selection)
 
-
 func _on_acacia_world_select_click_end():
 	get_tree().change_scene_to_file(acacia_scene)
 
-
 func _on_inferius_tile_world_select_click_end():
 	get_tree().change_scene_to_file(inferius_scene)
+
+func _on_makka_tile_world_select_click_end():
+	get_tree().change_scene_to_file(makka_scene)

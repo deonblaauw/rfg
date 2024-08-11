@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animated_sprite_izra = $AnimatedSpriteIzra
 @onready var animated_sprite_ishtu = $AnimatedSpriteIshtu
 @onready var animated_sprite_bob = $AnimatedSpriteBob
+@onready var animated_sprite_samurai = $AnimatedSpriteSamurai
 
 var active_sprite: AnimatedSprite2D = null
 var flip_anim = false
@@ -136,6 +137,12 @@ func _ready():
 				#upgrade_character("icespear1") 
 				#upgrade_character("javelin1")
 				upgrade_character("tornado1")
+		"samurai":
+				# set player character and initial weapon
+				set_active_character("samurai")
+				#upgrade_character("icespear1") 
+				#upgrade_character("javelin1")
+				upgrade_character("icespear1")
 		_:
 			print(" NO CHARACTER FOUND ")
 
@@ -207,6 +214,8 @@ func set_active_character(character_name: String) -> void:
 				active_sprite = animated_sprite_ishtu
 			"bob":
 				active_sprite = animated_sprite_bob
+			"samurai":
+				active_sprite = animated_sprite_samurai
 			_:
 				push_error("Unrecognized character!")
 			
@@ -223,6 +232,7 @@ func set_active_character(character_name: String) -> void:
 			animated_sprite_izra.visible = (character_name == "izra")
 			animated_sprite_ishtu.visible = (character_name == "ishtu")
 			animated_sprite_bob.visible = (character_name == "bob")
+			animated_sprite_samurai.visible = (character_name == "samurai")
 		else:
 			print("Error: Active sprite is null for character: ", character_name)
 	else:

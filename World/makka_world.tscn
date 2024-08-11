@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://wef4avrg6api"]
+
+[ext_resource type="Script" path="res://World/world_control.gd" id="1_lo5ps"]
+[ext_resource type="Texture2D" uid="uid://cy8qhxw20yegf" path="res://Assets/Textures/World/backgrounds 256x256/256_Dirt Pebbles 02.png" id="2_26q1d"]
+[ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="3_82e5e"]
+[ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="4_utgmg"]
+[ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="5_ngjyi"]
+[ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="6_28ao4"]
+[ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="7_588a4"]
+
+[node name="Makka World" type="Node2D"]
+script = ExtResource("1_lo5ps")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("2_26q1d")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8000, 8000)
+region_filter_clip_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_82e5e")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_utgmg")]
+spawn_data_resource = ExtResource("5_ngjyi")
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="ExperienceGem" parent="Loot" instance=ExtResource("6_28ao4")]
+position = Vector2(423, -79)
+experience = 50
+
+[node name="snd_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_588a4")
+volume_db = -20.0
+autoplay = true

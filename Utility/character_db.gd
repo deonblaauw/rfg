@@ -24,6 +24,14 @@ const CHARACTERS = {
 			"heal_hp": 0.7,
 			"heal_rate": 0.8,
 			"weapon": "Tornado"
+		},
+		"samurai": {
+			"flip_anim": false,
+			"max_hp": 95.0,
+			"movement_speed": 75.0,
+			"heal_hp": 1.1,
+			"heal_rate": 1.0,
+			"weapon": "Ice Spear"
 		}
 	}
 	

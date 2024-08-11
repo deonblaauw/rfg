@@ -55,12 +55,20 @@ offset_bottom = 174.0
 
 [node name="Bob" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 240.0
+offset_left = 128.0
 offset_top = 205.0
-offset_right = 304.0
+offset_right = 192.0
+offset_bottom = 269.0
+
+[node name="Samurai" parent="." instance=ExtResource("4_h0j8y")]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 205.0
+offset_right = 429.0
 offset_bottom = 269.0
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
 [connection signal="char_select_click_end" from="Izra" to="." method="_on_izra_char_select_click_end"]
 [connection signal="char_select_click_end" from="Ishtu" to="." method="_on_ishtu_char_select_click_end"]
 [connection signal="char_select_click_end" from="Bob" to="." method="_on_bob_char_select_click_end"]
+[connection signal="char_select_click_end" from="Samurai" to="." method="_on_samurai_char_select_click_end"]

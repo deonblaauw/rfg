@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cp4b13i13c73d"]
+[gd_scene load_steps=77 format=3 uid="uid://cp4b13i13c73d"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2twp3"]
 [ext_resource type="Texture2D" uid="uid://cy05whul716kf" path="res://Assets/Textures/Player/player_sprite.png" id="1_sixuk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsetjlsmq5ao2" path="res://Assets/Textures/GUI/exp_background.png" id="4_pk0qy"]
 [ext_resource type="Texture2D" uid="uid://c73xp2rxcbp5o" path="res://Assets/Textures/Player/villager_npc_spritesheet/npc01_spritesheet.png" id="4_rjbd6"]
 [ext_resource type="Texture2D" uid="uid://c03hv7qpngsbk" path="res://Assets/Textures/GUI/exp_progress.png" id="5_7amyo"]
+[ext_resource type="Texture2D" uid="uid://bjtahl8sdecw4" path="res://Assets/Textures/Player/FREE_Samurai 2D Pixel Art/Sprites/RUN.png" id="5_231nu"]
 [ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="6_60m7o"]
 [ext_resource type="AudioStream" uid="uid://br0otd0f51pmc" path="res://Assets/Audio/SoundEffect/levelup.ogg" id="7_owcc0"]
 [ext_resource type="Texture2D" uid="uid://dok84rxgf23x1" path="res://Assets/Textures/GUI/healthbar.png" id="8_1jqf7"]
@@ -167,6 +168,70 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_02mkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3g14"]
+atlas = ExtResource("5_231nu")
+region = Rect2(0, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqlkq"]
+atlas = ExtResource("5_231nu")
+region = Rect2(93, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3t6"]
+atlas = ExtResource("5_231nu")
+region = Rect2(186, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaggl"]
+atlas = ExtResource("5_231nu")
+region = Rect2(279, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eup3b"]
+atlas = ExtResource("5_231nu")
+region = Rect2(372, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we1ay"]
+atlas = ExtResource("5_231nu")
+region = Rect2(465, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7l4v"]
+atlas = ExtResource("5_231nu")
+region = Rect2(558, 56, 93, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4gp0"]
+atlas = ExtResource("5_231nu")
+region = Rect2(651, 56, 93, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lp7dr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3g14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqlkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaggl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eup3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we1ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7l4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4gp0")
 }],
 "loop": true,
 "name": &"default",
@@ -395,10 +460,15 @@ autoplay = "default"
 frame_progress = 0.520929
 
 [node name="AnimatedSpriteBob" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_3x1av")
 autoplay = "default"
 frame_progress = 0.14267
+
+[node name="AnimatedSpriteSamurai" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lp7dr")
+frame_progress = 0.377218
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")

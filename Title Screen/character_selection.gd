@@ -6,6 +6,7 @@ var lvl_menu_world_selection = "res://Title Screen/world_selection.tscn"
 @onready var izra = $Izra
 @onready var ishtu = $Ishtu
 @onready var bob = $Bob
+@onready var samurai = $Samurai
 
 func _ready():
 	# Izra setup
@@ -16,6 +17,9 @@ func _ready():
 
 	# Bob setup
 	setup_character(bob, "bob", "res://Assets/Textures/Player/bob_icon.png")
+	
+	# Samurai setup
+	setup_character(samurai, "samurai", "res://Assets/Textures/Player/samurai_icon.png")
 
 func setup_character(char_node, char_name, texture_path):
 	char_node.lbl_char_sel.text = char_name.capitalize()
@@ -25,6 +29,10 @@ func setup_character(char_node, char_name, texture_path):
 	char_node.lbl_healrate.text = "Heal Rate: " + str(CharacterDb.CHARACTERS[char_name]["heal_rate"])
 	char_node.icon.texture = load(texture_path)
 
+func select_character(char_name):
+	Global.selected_character = char_name
+	get_tree().change_scene_to_file(lvl_menu_world_selection)
+	
 func _on_btn_back_click_end():
 	get_tree().change_scene_to_file(lvl_menu)
 
@@ -37,6 +45,5 @@ func _on_ishtu_char_select_click_end():
 func _on_bob_char_select_click_end():
 	select_character("bob")
 
-func select_character(char_name):
-	Global.selected_character = char_name
-	get_tree().change_scene_to_file(lvl_menu_world_selection)
+func _on_samurai_char_select_click_end():
+	select_character("samurai")
