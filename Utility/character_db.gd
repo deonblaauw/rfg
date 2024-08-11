@@ -31,7 +31,7 @@ const CHARACTERS = {
 			"movement_speed": 75.0,
 			"heal_hp": 1.1,
 			"heal_rate": 1.0,
-			"weapon": "Ice Spear"
+			"weapon": "Suriken"
 		}
 	}
 	
