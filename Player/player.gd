@@ -48,6 +48,21 @@ var icespear_level = 0
 # -----------------------------------------------------------
 
 # -----------------------------------------------------------
+## Suriken
+# -----------------------------------------------------------
+var suriken = preload("res://Player/Attack/suriken.tscn")
+# Attack Nodes
+@onready var suriken_timer = $Attack/SurikenTimer
+@onready var suriken_attack_timer = $Attack/SurikenTimer/SurikenAttackTimer
+
+# Suriken Attributes
+var suriken_ammo = 0
+var suriken_baseammo = 0 # shoots this many in one go
+var suriken_attack_speed = 1.5
+var suriken_level = 0
+# -----------------------------------------------------------
+
+# -----------------------------------------------------------
 ## Tornado
 # -----------------------------------------------------------
 var tornado = preload("res://Player/Attack/tornado.tscn")
@@ -142,7 +157,7 @@ func _ready():
 				set_active_character("samurai")
 				#upgrade_character("icespear1") 
 				#upgrade_character("javelin1")
-				upgrade_character("icespear1")
+				upgrade_character("suriken1")
 		_:
 			print(" NO CHARACTER FOUND ")
 
@@ -156,6 +171,11 @@ func attack():
 		ice_spear_timer.wait_time = icespear_attack_speed * (1 - spell_cooldown)
 		if ice_spear_timer.is_stopped():
 			ice_spear_timer.start()
+			
+	if suriken_level > 0:
+		suriken_timer.wait_time = suriken_attack_speed * (1 - spell_cooldown)
+		if suriken_timer.is_stopped():
+			suriken_timer.start()
 			
 	if tornado_level > 0:
 		tornado_timer.wait_time = tornado_attackspeed * (1 - spell_cooldown)
@@ -417,6 +437,17 @@ func upgrade_character(upgrade):
 		"icespear4":
 			icespear_level = 4
 			icespear_baseammo += 2
+		"suriken1":
+			suriken_level = 1
+			suriken_baseammo += 1
+		"suriken2":
+			suriken_level = 2
+			suriken_baseammo += 1
+		"suriken3":
+			suriken_level = 3
+		"suriken4":
+			suriken_level = 4
+			suriken_baseammo += 2
 		"tornado1":
 			tornado_level = 1
 			tornado_baseammo += 1
@@ -549,3 +580,22 @@ func _input(event):
 func _on_btn_resume_click_end():
 	get_tree().paused = false
 	pause_panel.visible = false
+
+
+func _on_suriken_timer_timeout():
+	suriken_ammo += suriken_baseammo + additional_attacks
+	suriken_attack_timer.start()
+
+
+func _on_suriken_attack_timer_timeout():
+	if suriken_ammo > 0:
+		var suriken_attack = suriken.instantiate()
+		suriken_attack.position = position
+		suriken_attack.target = get_random_target()
+		suriken_attack.level = suriken_level
+		add_child(suriken_attack)
+		suriken_ammo -= 1
+		if suriken_ammo > 0:
+			suriken_attack_timer.start()
+		else:
+			suriken_attack_timer.stop()

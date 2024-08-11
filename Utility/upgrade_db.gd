@@ -23,7 +23,7 @@ const UPGRADES = {
 	"icespear3": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Ice Spears now pass through another enemy and do + 3 damage",
+		"details": "Ice Spears now pass through another enemy and do +6 damage",
 		"level": "Level: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
@@ -32,6 +32,38 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
 		"details": "An additional 2 Ice Spears are thrown",
+		"level": "Level: 4",
+		"prerequisite": ["icespear3"],
+		"type": "weapon"
+	},
+	"suriken1": {
+		"icon": WEAPON_PATH + "suriken_icon.png",
+		"displayname": "Suriken",
+		"details": "A razor sharp suriken is thrown at a random enemy",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"suriken2": {
+		"icon": WEAPON_PATH + "suriken_icon.png",
+		"displayname": "Suriken",
+		"details": "An addition Suriken is thrown",
+		"level": "Level: 2",
+		"prerequisite": ["icespear1"],
+		"type": "weapon"
+	},
+	"suriken3": {
+		"icon": WEAPON_PATH + "suriken_icon.png",
+		"displayname": "Suriken",
+		"details": "Surikens now pass through another enemy and do +5 damage",
+		"level": "Level: 3",
+		"prerequisite": ["icespear2"],
+		"type": "weapon"
+	},
+	"suriken4": {
+		"icon": WEAPON_PATH + "suriken_icon.png",
+		"displayname": "Suriken",
+		"details": "An additional 2 Surikens are thrown",
 		"level": "Level: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"

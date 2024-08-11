@@ -468,7 +468,7 @@ frame_progress = 0.14267
 
 [node name="AnimatedSpriteSamurai" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lp7dr")
-frame_progress = 0.377218
+frame_progress = 0.645145
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")
@@ -491,6 +491,12 @@ autostart = true
 wait_time = 1.5
 
 [node name="iceSpearAttack" type="Timer" parent="Attack/iceSpearTimer"]
+wait_time = 0.075
+
+[node name="SurikenTimer" type="Timer" parent="Attack"]
+wait_time = 1.5
+
+[node name="SurikenAttackTimer" type="Timer" parent="Attack/SurikenTimer"]
 wait_time = 0.075
 
 [node name="TornadoTimer" type="Timer" parent="Attack"]
@@ -684,6 +690,8 @@ columns = 10
 [connection signal="timeout" from="healTimer" to="." method="_on_heal_timer_timeout"]
 [connection signal="timeout" from="Attack/iceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
 [connection signal="timeout" from="Attack/iceSpearTimer/iceSpearAttack" to="." method="_on_ice_spear_attack_timeout"]
+[connection signal="timeout" from="Attack/SurikenTimer" to="." method="_on_suriken_timer_timeout"]
+[connection signal="timeout" from="Attack/SurikenTimer/SurikenAttackTimer" to="." method="_on_suriken_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]

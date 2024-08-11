@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6pyevebvlodv"]
+
+[ext_resource type="Script" path="res://Player/Attack/suriken.gd" id="1_uridr"]
+[ext_resource type="Texture2D" uid="uid://bclwylav20ekf" path="res://Assets/Textures/Items/Weapons/SawBladeSuriken.png" id="2_2egky"]
+[ext_resource type="AudioStream" uid="uid://cqcqt1dtuq3rq" path="res://Assets/Audio/SoundEffect/ice.wav" id="3_vcgyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jecyc"]
+atlas = ExtResource("2_2egky")
+region = Rect2(3, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3ne4"]
+atlas = ExtResource("2_2egky")
+region = Rect2(28, 32, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lff2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jecyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3ne4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qurin"]
+radius = 3.53553
+height = 35.3553
+
+[node name="Suriken" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_uridr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_0lff2")
+autoplay = "default"
+frame_progress = 0.0865226
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = -0.785398
+shape = SubResource("CapsuleShape2D_qurin")
+
+[node name="sound_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vcgyh")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[node name="autoDespawn" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="autoDespawn" to="." method="_on_auto_despawn_timeout"]

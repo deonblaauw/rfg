@@ -17,32 +17,32 @@ signal remove_from_array(object)
 
 func _ready():
 	angle = global_position.direction_to(target)
-	rotation = angle.angle() + deg_to_rad(135)
-	
+	#rotation = angle.angle() + deg_to_rad(135)
+
 	# here we can level up our weapon stats
 	match level:
 		1:
 			hp = 1
-			base_speed = 20 # above player speed
-			damage = 5
+			base_speed = 50 # above player speed
+			damage = 4
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		2:
 			hp = 1
-			base_speed = 20 # above player speed
-			damage = 5
+			base_speed = 50 # above player speed
+			damage = 4
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		3:
 			hp = 2
-			base_speed = 20 # above player speed
-			damage = 11
+			base_speed = 50 # above player speed
+			damage = 9
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		4:
 			hp = 2
-			base_speed = 20 # above player speed
-			damage = 11
+			base_speed = 50 # above player speed
+			damage = 9
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 			
