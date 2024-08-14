@@ -79,14 +79,15 @@ func show_damage_number(damage: int):
 	var damage_number_instance = DamageNumber.instantiate()
 	
 	# Set the damage value
+	damage = damage * 100
 	damage_number_instance.set_damage(damage)
 	
 	# Add the damage number to the scene tree
 	get_parent().add_child(damage_number_instance)
 	
-	if damage <= 5:
+	if damage <= 500:
 		damage_number_instance.set_color("white")
-	elif damage > 5 and damage <= 10:
+	elif damage > 500 and damage <= 1000:
 		damage_number_instance.set_color("yellow")
 	else:
 		damage_number_instance.set_color("red")

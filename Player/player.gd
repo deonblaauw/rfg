@@ -89,6 +89,19 @@ var javelin_ammo = 0
 var javelin_level = 0
 # -----------------------------------------------------------
 
+# -----------------------------------------------------------
+## Fireball
+# -----------------------------------------------------------
+var fireball = preload("res://Player/Attack/fireball.tscn")
+# Attack Nodes
+@onready var fireball_base = $Attack/FireballBase
+
+# JavelinAttributes
+var fireball_ammo = 0
+var fireball_level = 0
+# -----------------------------------------------------------
+
+
 # UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
@@ -157,7 +170,7 @@ func _ready():
 				set_active_character("samurai")
 				#upgrade_character("icespear1") 
 				#upgrade_character("javelin1")
-				upgrade_character("suriken1")
+				upgrade_character("fireball1")
 		_:
 			print(" NO CHARACTER FOUND ")
 
@@ -184,6 +197,9 @@ func attack():
 			
 	if javelin_level > 0:
 		spawn_javelin()
+	
+	if fireball_level > 0:
+		spawn_fireball()
 		
 func _physics_process(_delta):
 	movement()
@@ -362,6 +378,21 @@ func spawn_javelin():
 		if i.has_method("update_javelin"):
 			i.update_javelin()
 
+func spawn_fireball():
+	var get_fireball_total = fireball_base.get_child_count()
+	var calc_spawns = (fireball_ammo + additional_attacks) - get_fireball_total
+	while calc_spawns > 0:
+		var fireball_spawn = fireball.instantiate()
+		fireball_spawn.global_position = global_position
+		fireball_base.add_child(fireball_spawn)
+		calc_spawns -= 1
+	
+	#Upgrade fireball
+	var get_fireball = fireball_base.get_children()
+	for i in get_fireball:
+		if i.has_method("update_fireball"):
+			i.update_fireball()
+
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experience_cap()
 	collected_experience += gem_exp
@@ -469,6 +500,15 @@ func upgrade_character(upgrade):
 			javelin_level = 3
 		"javelin4":
 			javelin_level = 4
+		"fireball1":
+			fireball_level = 1
+			fireball_ammo = 1
+		"fireball2":
+			fireball_level = 2
+		"fireball3":
+			fireball_level = 3
+		"fireball4":
+			fireball_level = 4
 		"armor1","armor2","armor3","armor4":
 			armor += 1
 		"speed1","speed2","speed3","speed4":

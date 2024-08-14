@@ -95,9 +95,41 @@ const UPGRADES = {
 	"javelin4": {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Javelin",
-		"details": "The javelin now does + 5 damage per attack, causes 20% additional knockback and hits one additional enemy",
+		"details": "The javelin now does +5 damage per attack, causes 20% additional knockback and hits one additional enemy",
 		"level": "Level: 4",
 		"prerequisite": ["javelin3"],
+		"type": "weapon"
+	},
+	"fireball1": {
+		"icon": "res://Assets/Textures/Items/Weapons/fireball_icon.png",
+		"displayname": "Fireball",
+		"details": "A magical fireball will follow you attacking four enemies in a straight line",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"fireball2": {
+		"icon": "res://Assets/Textures/Items/Weapons/fireball_icon.png",
+		"displayname": "Fireball",
+		"details": "The fireball will now attack an additional enemy per attack",
+		"level": "Level: 2",
+		"prerequisite": ["fireball1"],
+		"type": "weapon"
+	},
+	"fireball3": {
+		"icon": "res://Assets/Textures/Items/Weapons/fireball_icon.png",
+		"displayname": "Fireball",
+		"details": "The fireball will attack another additional enemy per attack",
+		"level": "Level: 3",
+		"prerequisite": ["fireball2"],
+		"type": "weapon"
+	},
+	"fireball4": {
+		"icon": "res://Assets/Textures/Items/Weapons/fireball_icon.png",
+		"displayname": "Fireball",
+		"details": "The fireball now does +5 damage per attack, causes 20% additional knockback and hits one additional enemy",
+		"level": "Level: 4",
+		"prerequisite": ["fireball3"],
 		"type": "weapon"
 	},
 	"tornado1": {
