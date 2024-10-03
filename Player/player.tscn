@@ -969,7 +969,7 @@ frame_progress = 0.202003
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_45000")
 animation = &"hit"
-frame_progress = 0.618442
+frame_progress = 0.923238
 
 [node name="AnimatedSpriteRogueArcher" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_noqg2")
