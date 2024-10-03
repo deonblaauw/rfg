@@ -8,6 +8,7 @@ extends ColorRect
 @onready var lbl_speed = $lbl_speed
 @onready var lbl_healrate = $lbl_healrate
 @onready var icon = $Icon
+@onready var sprite_2d = $Sprite2D
 
 signal char_select_click_end()
 	
@@ -22,3 +23,6 @@ func _on_btn_select_mouse_exited():
 	
 func _on_btn_select_pressed():
 	snd_click.play()
+
+
+

@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animated_sprite_ishtu = $AnimatedSpriteIshtu
 @onready var animated_sprite_bob = $AnimatedSpriteBob
 @onready var animated_sprite_samurai = $AnimatedSpriteSamurai
+@onready var animated_sprite_smash_knight = $AnimatedSpriteSmashKnight
+
 
 var active_sprite: AnimatedSprite2D = null
 var flip_anim = false
@@ -145,32 +147,28 @@ func _ready():
 
 	death_panel.visible = false
 	pause_panel.visible = false
-	
+
 	match Global.selected_character:
 		"izra":
 				# set player character and initial weapon
 				set_active_character("izra")
 				upgrade_character("icespear1") 
-				#upgrade_character("javelin1")
-				#upgrade_character("tornado1")
 		"ishtu":
 				# set player character and initial weapon
 				set_active_character("ishtu")
-				#upgrade_character("icespear1") 
 				upgrade_character("javelin1")
-				#upgrade_character("tornado1")
 		"bob":
 				# set player character and initial weapon
 				set_active_character("bob")
-				#upgrade_character("icespear1") 
-				#upgrade_character("javelin1")
 				upgrade_character("tornado1")
 		"samurai":
 				# set player character and initial weapon
 				set_active_character("samurai")
-				#upgrade_character("icespear1") 
-				#upgrade_character("javelin1")
 				upgrade_character("fireball1")
+		"smash_knight":
+				# set player character and initial weapon
+				set_active_character("smash_knight")
+				upgrade_character("suriken1")
 		_:
 			print(" NO CHARACTER FOUND ")
 
@@ -179,7 +177,7 @@ func _ready():
 	
 	
 func attack():
-	
+		
 	if icespear_level > 0:
 		ice_spear_timer.wait_time = icespear_attack_speed * (1 - spell_cooldown)
 		if ice_spear_timer.is_stopped():
@@ -214,7 +212,7 @@ func movement():
 	var direction = Input.get_vector("left","right","up","down")
 	if not direction.is_zero_approx():
 		last_direction = direction
-	velocity = direction.normalized() * movement_speed
+	velocity = direction.normalized() * movement_speed		
 	move_and_slide()
 	
 # Animation function
@@ -226,11 +224,15 @@ func update_animation():
 	# Ensure active_sprite is set
 	if active_sprite == null:
 		return
-	
-	if not velocity.is_zero_approx():
-		active_sprite.play()
-	else:
-		active_sprite.stop()
+			
+	# once all characters support the standard animations, 
+	# the code below can be removed (the if statement below)
+	active_sprite.play()
+	if active_sprite == animated_sprite_smash_knight:
+		if velocity.is_zero_approx():
+			active_sprite.play("idle")
+		else:
+			active_sprite.play("run")
 	
 	if velocity.x > 0:
 		active_sprite.flip_h = flip_anim
@@ -252,6 +254,10 @@ func set_active_character(character_name: String) -> void:
 				active_sprite = animated_sprite_bob
 			"samurai":
 				active_sprite = animated_sprite_samurai
+			"smash_knight":
+				active_sprite = animated_sprite_smash_knight
+				# Play idle animation when Smash Knight spawns
+				active_sprite.play("idle")
 			_:
 				push_error("Unrecognized character!")
 			
@@ -269,6 +275,8 @@ func set_active_character(character_name: String) -> void:
 			animated_sprite_ishtu.visible = (character_name == "ishtu")
 			animated_sprite_bob.visible = (character_name == "bob")
 			animated_sprite_samurai.visible = (character_name == "samurai")
+			animated_sprite_smash_knight.visible = (character_name == "smash_knight")
+			
 		else:
 			print("Error: Active sprite is null for character: ", character_name)
 	else:

@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgfhnk5b6buhj"]
+[gd_scene load_steps=9 format=3 uid="uid://cgfhnk5b6buhj"]
 
 [ext_resource type="Script" path="res://Title Screen/char_select_button.gd" id="1_ttrh1"]
 [ext_resource type="Texture2D" uid="uid://b67jserymk5n6" path="res://Assets/Textures/GUI/EmptyItem.png" id="2_e2b82"]
 [ext_resource type="FontFile" uid="uid://cg3hcea6mc3e7" path="res://Assets/Font/tenderness.otf" id="2_jk36r"]
-[ext_resource type="Texture2D" uid="uid://cb4trlfrvq5sn" path="res://Assets/Textures/Player/ishtu_icon.png" id="3_cjjek"]
+[ext_resource type="Texture2D" uid="uid://cmrqslsk21hct" path="res://Assets/Textures/Player/SpriteSheets/SmashKnight.png" id="3_uehv1"]
 [ext_resource type="AudioStream" uid="uid://dkaytnpd3cnk6" path="res://Assets/Audio/GUI/hover.wav" id="4_ia465"]
 [ext_resource type="AudioStream" uid="uid://cvd6i7mt3utna" path="res://Assets/Audio/GUI/click.wav" id="5_bsnlq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6uqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etyin"]
+atlas = SubResource("AtlasTexture_o6uqr")
 
 [node name="Character Select Button" type="ColorRect"]
 offset_right = 59.0
@@ -26,7 +31,15 @@ layout_mode = 0
 offset_top = 5.0
 offset_right = 64.0
 offset_bottom = 69.0
-texture = ExtResource("3_cjjek")
+texture = SubResource("AtlasTexture_etyin")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(27, 40)
+scale = Vector2(0.3, 0.336)
+texture = ExtResource("3_uehv1")
+region_enabled = true
+region_rect = Rect2(824, 840, 128, 136)
 
 [node name="btn_select" type="Button" parent="."]
 layout_mode = 0

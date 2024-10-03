@@ -41,34 +41,42 @@ text = "Back"
 
 [node name="Izra" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 110.0
-offset_right = 192.0
-offset_bottom = 174.0
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 96.0
+offset_bottom = 176.0
 
 [node name="Ishtu" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 110.0
-offset_right = 429.0
-offset_bottom = 174.0
+offset_left = 248.0
+offset_top = 112.0
+offset_right = 312.0
+offset_bottom = 176.0
 
 [node name="Bob" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 205.0
-offset_right = 192.0
-offset_bottom = 269.0
+offset_left = 32.0
+offset_top = 208.0
+offset_right = 96.0
+offset_bottom = 272.0
 
 [node name="Samurai" parent="." instance=ExtResource("4_h0j8y")]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 205.0
-offset_right = 429.0
-offset_bottom = 269.0
+offset_left = 248.0
+offset_top = 208.0
+offset_right = 312.0
+offset_bottom = 272.0
+
+[node name="SmashKinght" parent="." instance=ExtResource("4_h0j8y")]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 112.0
+offset_right = 520.0
+offset_bottom = 176.0
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
 [connection signal="char_select_click_end" from="Izra" to="." method="_on_izra_char_select_click_end"]
 [connection signal="char_select_click_end" from="Ishtu" to="." method="_on_ishtu_char_select_click_end"]
 [connection signal="char_select_click_end" from="Bob" to="." method="_on_bob_char_select_click_end"]
 [connection signal="char_select_click_end" from="Samurai" to="." method="_on_samurai_char_select_click_end"]
+[connection signal="char_select_click_end" from="SmashKinght" to="." method="_on_smash_kinght_char_select_click_end"]
