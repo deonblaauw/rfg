@@ -94,6 +94,7 @@ func _physics_process(delta):
 		var min_return_speed = 10.0
 		var max_return_speed = 300.0
 		var speed_smoothing = 5.0
+		var distance_from_player = 1.0 # This will be used as a vector offset
 
 		# Determine desired speed based on distance
 		var desired_speed = min_return_speed
@@ -104,9 +105,13 @@ func _physics_process(delta):
 		# Smoothly adjust speed towards desired speed
 		return_speed = lerpf(return_speed, desired_speed, delta * speed_smoothing)
 
+		# Calculate the offset to maintain distance from the player
+		var offset_from_player = direction_to_player * distance_from_player
+
+
 		# Update position
 		var movement = direction_to_player * return_speed * delta
-		position += movement
+		position += movement - offset_from_player
 
 		## Ensure the javelin stays within bounds
 		#var viewport_rect = get_viewport_rect()

@@ -2,7 +2,7 @@ extends Area2D
 
 ## General Attack Settings
 var level = 1
-var hp = 9999 # javelin doesn't de-spawn
+var hp = 9999 # fireball doesn't de-spawn
 @export var base_speed = 200.0 
 @export var damage = 10
 @export var knockback_amount = 100
@@ -13,7 +13,7 @@ var speed = 0
 
 ## Fireball-specific
 var return_speed = 0
-var paths = 1.0 # amount of attacks javelin does while in attack mode
+var paths = 1.0 # amount of attacks fireball does while in attack mode
 var attack_speed = 4.0
 
 var target = Vector2.ZERO
@@ -33,7 +33,7 @@ func _ready():
 	update_fireball()
 	
 func update_fireball():
-	level = player.javelin_level
+	level = player.fireball_level
 	# here we can level up our weapon stats
 	match level:
 		1:
@@ -72,7 +72,7 @@ func update_fireball():
 	scale = Vector2(1.0,1.0) * attack_size
 	attack_timer.wait_time = attack_speed
 	
-	# Javelin speeds up with player
+	# fireball speeds up with player
 	if player.has_method("get_movement_speed"):
 		speed = player.get_movement_speed() + base_speed
 
@@ -91,25 +91,31 @@ func _physics_process(delta):
 		var min_return_speed = 10.0
 		var max_return_speed = 300.0
 		var speed_smoothing = 5.0
+		var distance_from_player = 1.0 # This will be used as a vector offset
 
 		# Determine desired speed based on distance
 		var desired_speed = min_return_speed
+
 		if distance_to_player > deadband_radius:
 			desired_speed = speed + (distance_to_player - deadband_radius) * 0.1
 			desired_speed = min(desired_speed, max_return_speed)
-
+			
 		# Smoothly adjust speed towards desired speed
 		return_speed = lerpf(return_speed, desired_speed, delta * speed_smoothing)
 
-		# Update position
+		# Calculate the offset to maintain distance from the player
+		var offset_from_player = direction_to_player * distance_from_player
+
+		# Update position with the offset to maintain distance
 		var movement = direction_to_player * return_speed * delta
-		position += movement
+		position += movement - offset_from_player
 
 		# Update rotation to face player
 		rotation = direction_to_player.angle() + deg_to_rad(135)
 
 
-# javelin doesn't take damage by hitting enemies
+
+# fireball doesn't take damage by hitting enemies
 func enemy_hit(_charge = 1):
 	pass
 

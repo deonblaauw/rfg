@@ -20,7 +20,7 @@ func _ready():
 	setup_character(bob, "bob", "res://Assets/Textures/Player/bob_icon.png")
 	
 	# Samurai setup
-	setup_character(samurai, "samurai", "res://Assets/Textures/Player/samurai_icon.png")
+	setup_character(samurai, "samurai", "res://Assets/Textures/Player/SpriteSheets/Samurai.png")
 	
 	# SmashKnight setup"res://Assets/Textures/Player/icons/smash_knight_icon.png"
 	setup_character(smash_knight, "smash_knight", "res://Assets/Textures/Player/SpriteSheets/SmashKnight.png")
