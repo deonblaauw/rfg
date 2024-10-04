@@ -39,7 +39,7 @@ position = Vector2(27, 40)
 scale = Vector2(0.3, 0.336)
 texture = ExtResource("3_uehv1")
 region_enabled = true
-region_rect = Rect2(824, 840, 128, 136)
+region_rect = Rect2(61.56, 824, 142, 180)
 
 [node name="btn_select" type="Button" parent="."]
 layout_mode = 0
