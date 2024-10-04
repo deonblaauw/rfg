@@ -963,15 +963,16 @@ frame_progress = 0.194634
 [node name="AnimatedSpriteSamurai" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_lp7dr")
-frame_progress = 0.202003
+frame_progress = 0.182618
 
 [node name="AnimatedSpriteSmashKnight" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_45000")
-animation = &"hit"
-frame_progress = 0.923238
+animation = &"cast"
+frame_progress = 0.922278
 
 [node name="AnimatedSpriteRogueArcher" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_noqg2")
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]

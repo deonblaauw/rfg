@@ -29,7 +29,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 644.0
 offset_bottom = 362.0
-color = Color(0.564706, 0.231373, 0.101961, 1)
+color = Color(0.313726, 0.298039, 0.611765, 1)
 
 [node name="btn_back" parent="." instance=ExtResource("1_idy63")]
 layout_mode = 0

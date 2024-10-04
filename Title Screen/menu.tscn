@@ -17,7 +17,7 @@ script = ExtResource("1_a3crd")
 layout_mode = 0
 offset_right = 644.0
 offset_bottom = 362.0
-color = Color(0.563713, 0.231571, 0.103562, 1)
+color = Color(0.314304, 0.298708, 0.613721, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -25,7 +25,7 @@ offset_right = 640.0
 offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("1_xcutc")
 theme_override_font_sizes/font_size = 72
-text = "Survivors Clone"
+text = "RFG"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -36,7 +36,7 @@ offset_right = 640.0
 offset_bottom = 200.0
 theme_override_fonts/font = ExtResource("1_xcutc")
 theme_override_font_sizes/font_size = 48
-text = "Crappy Edition"
+text = "Ultimate Deluxe Edition"
 horizontal_alignment = 1
 vertical_alignment = 1
 
