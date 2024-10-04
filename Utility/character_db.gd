@@ -3,14 +3,14 @@ extends Node
 const CHARACTERS = {
 		"smash_knight": {
 			"flip_anim": false,
-			"max_hp": 80.0,
-			"movement_speed": 80.0,
-			"heal_hp": 0.5,
+			"max_hp": 85.0,
+			"movement_speed": 85.0,
+			"heal_hp": 0.7,
 			"heal_rate": 0.9,
-			"weapon": "Ice Spear"
+			"weapon": "Righteous Fire"
 		},
 		"izra": {
-			"flip_anim": true,
+			"flip_anim": false,
 			"max_hp": 80.0,
 			"movement_speed": 80.0,
 			"heal_hp": 0.5,

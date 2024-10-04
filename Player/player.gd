@@ -164,11 +164,11 @@ func _ready():
 		"samurai":
 				# set player character and initial weapon
 				set_active_character("samurai")
-				upgrade_character("fireball1")
+				upgrade_character("suriken1")
 		"smash_knight":
 				# set player character and initial weapon
 				set_active_character("smash_knight")
-				upgrade_character("suriken1")
+				upgrade_character("fireball1")
 		_:
 			print(" NO CHARACTER FOUND ")
 
@@ -225,14 +225,13 @@ func update_animation():
 	if active_sprite == null:
 		return
 			
-	# once all characters support the standard animations, 
-	# the code below can be removed (the if statement below)
+	
 	active_sprite.play()
-	if active_sprite == animated_sprite_smash_knight:
-		if velocity.is_zero_approx():
-			active_sprite.play("idle")
-		else:
-			active_sprite.play("run")
+	if velocity.is_zero_approx():
+		active_sprite.play("idle")
+	else:
+		active_sprite.play("run")
+		
 	
 	if velocity.x > 0:
 		active_sprite.flip_h = flip_anim
@@ -248,15 +247,18 @@ func set_active_character(character_name: String) -> void:
 		match character_name:
 			"izra":
 				active_sprite = animated_sprite_izra
+				active_sprite.play("idle")
 			"ishtu":
 				active_sprite = animated_sprite_ishtu
+				active_sprite.play("idle")
 			"bob":
 				active_sprite = animated_sprite_bob
+				active_sprite.play("idle")
 			"samurai":
 				active_sprite = animated_sprite_samurai
+				active_sprite.play("idle")
 			"smash_knight":
 				active_sprite = animated_sprite_smash_knight
-				# Play idle animation when Smash Knight spawns
 				active_sprite.play("idle")
 			_:
 				push_error("Unrecognized character!")

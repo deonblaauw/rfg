@@ -11,13 +11,13 @@ var lvl_menu_world_selection = "res://Title Screen/world_selection.tscn"
 
 func _ready():
 	# Izra setup
-	setup_character(izra, "izra", "res://Assets/Textures/Player/SpriteSheets/RogueArcher.png")
+	setup_character(izra, "izra", "res://Assets/Textures/Player/SpriteSheets/Izra.png")
 
 	# Ishtu setup
-	setup_character(ishtu, "ishtu", "res://Assets/Textures/Player/ishtu_icon.png")
+	setup_character(ishtu, "ishtu", "res://Assets/Textures/Player/SpriteSheets/Ishtu.png")
 
 	# Bob setup
-	setup_character(bob, "bob", "res://Assets/Textures/Player/bob_icon.png")
+	setup_character(bob, "bob","res://Assets/Textures/Player/SpriteSheets/Bob.png" )
 	
 	# Samurai setup
 	setup_character(samurai, "samurai", "res://Assets/Textures/Player/SpriteSheets/Samurai.png")

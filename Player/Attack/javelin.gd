@@ -108,7 +108,6 @@ func _physics_process(delta):
 		# Calculate the offset to maintain distance from the player
 		var offset_from_player = direction_to_player * distance_from_player
 
-
 		# Update position
 		var movement = direction_to_player * return_speed * delta
 		position += movement - offset_from_player
