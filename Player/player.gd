@@ -292,6 +292,7 @@ func _on_hurt_box_hurt(damage , _angle, _knockback):
 	damage_animation.play()
 	if hp <= 0:
 		death()
+		health_bar.value = hp
 
 func _on_heal_timer_timeout():
 	hp += healHp

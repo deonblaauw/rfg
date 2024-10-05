@@ -2906,7 +2906,7 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_515e5")
 animation = &"death_front"
 autoplay = "default"
-frame_progress = 0.284133
+frame_progress = 0.109439
 
 [node name="AnimatedSpriteBob" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -2914,7 +2914,7 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_3x1av")
 animation = &"death_front"
 autoplay = "default"
-frame_progress = 0.706669
+frame_progress = 0.531942
 
 [node name="AnimatedSpriteSamurai" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -2927,7 +2927,7 @@ visible = false
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_45000")
 animation = &"run"
-frame_progress = 0.293426
+frame_progress = 0.574698
 
 [node name="DamageAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_163u6")
