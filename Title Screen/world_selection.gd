@@ -32,7 +32,7 @@ func _ready():
 	# Infernius setup
 	world_name = "Infernius"
 	icon_texture_path = "res://Assets/Textures/World/backgrounds 256x256/256_Grass 03 Mud.png"
-	description = "Follow your heart, young adventurer. Unless you're Bob, then you're just old."
+	description = "Follow your heart, young adventurer. Unless you're Bob, then you're just weird."
 	game_type = "Duration:
 		10 minutes"
 	setup_world_tile(inferius_tile, world_name, description, game_type, icon_texture_path)
