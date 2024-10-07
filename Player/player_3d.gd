@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var animated_sprite_3d_smash_knight = $AnimatedSprite3DSmashKnight
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -29,3 +30,11 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_enemy_detection_area_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_enemy_detection_area_body_exited(body):
+	pass # Replace with function body.

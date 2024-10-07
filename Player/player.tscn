@@ -22,12 +22,12 @@
 [ext_resource type="AudioStream" uid="uid://bnj1ua2fqk3p3" path="res://Assets/Audio/SoundEffect/Lose.ogg" id="11_olpsb"]
 [ext_resource type="PackedScene" uid="uid://bmrp6lfqtslyu" path="res://Utility/basic_button.tscn" id="12_fflwm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2il0a"]
-radius = 371.734
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15ght"]
 radius = 3.0
 height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2il0a"]
+radius = 371.734
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3s5y"]
 atlas = ExtResource("2_18r3n")
@@ -2877,6 +2877,11 @@ collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_2twp3")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_15ght")
+
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
@@ -2887,11 +2892,6 @@ monitorable = false
 shape = SubResource("CircleShape2D_2il0a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-position = Vector2(1, 2)
-shape = SubResource("CapsuleShape2D_15ght")
 
 [node name="AnimatedSpriteIzra" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
