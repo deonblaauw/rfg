@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Dungeonater"
-run/main_scene="res://Title Screen/menu.tscn"
+config/name="RFG"
+run/main_scene="res://World/usakos_world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,12 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[importer_defaults]
+
+scene={
+"gltf/embedded_image_handling": 3
+}
 
 [input]
 

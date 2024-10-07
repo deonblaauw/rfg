@@ -11,6 +11,7 @@ var grasslands_scene = "res://World/grasslands_world.tscn"
 var acacia_scene = "res://World/acacia_world.tscn"
 var inferius_scene = "res://World/infernius_world.tscn"
 var makka_scene = "res://World/makka_world.tscn"
+var usakos_scene = "res://World/usakos_world.tscn"
 
 func _ready():
 	# Grasslands setup
@@ -66,3 +67,6 @@ func _on_inferius_tile_world_select_click_end():
 
 func _on_makka_tile_world_select_click_end():
 	get_tree().change_scene_to_file(makka_scene)
+
+func _on_usakos_world_select_click_end():
+	get_tree().change_scene_to_file(usakos_scene)

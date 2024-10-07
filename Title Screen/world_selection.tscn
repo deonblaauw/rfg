@@ -41,34 +41,42 @@ text = "Back"
 
 [node name="GrasslandsTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 110.0
-offset_right = 187.0
-offset_bottom = 177.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 83.0
+offset_bottom = 179.0
 
 [node name="AcaciaTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 110.0
-offset_right = 424.0
-offset_bottom = 177.0
+offset_left = 248.0
+offset_top = 112.0
+offset_right = 307.0
+offset_bottom = 179.0
 
 [node name="InferiusTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 205.0
-offset_right = 187.0
-offset_bottom = 272.0
+offset_left = 24.0
+offset_top = 207.0
+offset_right = 83.0
+offset_bottom = 274.0
 
 [node name="MakkaTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 205.0
-offset_right = 424.0
-offset_bottom = 272.0
+offset_left = 248.0
+offset_top = 207.0
+offset_right = 307.0
+offset_bottom = 274.0
+
+[node name="Usakos" parent="." instance=ExtResource("4_y22jc")]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 112.0
+offset_right = 523.0
+offset_bottom = 179.0
 
 [connection signal="click_end" from="btn_back" to="." method="_on_btn_back_click_end"]
 [connection signal="world_select_click_end" from="GrasslandsTile" to="." method="_on_grasslands_world_select_click_end"]
 [connection signal="world_select_click_end" from="AcaciaTile" to="." method="_on_acacia_world_select_click_end"]
 [connection signal="world_select_click_end" from="InferiusTile" to="." method="_on_inferius_tile_world_select_click_end"]
 [connection signal="world_select_click_end" from="MakkaTile" to="." method="_on_makka_tile_world_select_click_end"]
+[connection signal="world_select_click_end" from="Usakos" to="." method="_on_usakos_world_select_click_end"]

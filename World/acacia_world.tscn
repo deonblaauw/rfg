@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4b13i13c73d" path="res://Player/player.tscn" id="2_gsn5b"]
 [ext_resource type="PackedScene" uid="uid://bu1aocdsk7bhe" path="res://Utility/enemy_spawner.tscn" id="3_7w1jv"]
 [ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="4_5p4f8"]
-[ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="5_fjaqi"]
+[ext_resource type="PackedScene" uid="uid://dtj0t4bqdxx4p" path="res://Utility/loot.tscn" id="6_otuha"]
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_xo0ai"]
 
 [node name="Acacia World" type="Node2D"]
@@ -25,11 +25,7 @@ region_filter_clip_enabled = true
 active_spawn_mode = 1
 spawn_data_resource = ExtResource("4_5p4f8")
 
-[node name="Loot" type="Node2D" parent="." groups=["loot"]]
-
-[node name="ExperienceGem" parent="Loot" instance=ExtResource("5_fjaqi")]
-position = Vector2(423, -79)
-experience = 50
+[node name="Loot" parent="." instance=ExtResource("6_otuha")]
 
 [node name="snd_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xo0ai")

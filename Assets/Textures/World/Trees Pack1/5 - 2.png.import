@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50eb6ahgwp7s"
-path.s3tc="res://.godot/imported/256_Grass 03 Mud.png-c7e541039725fbab387b957a400d9a95.s3tc.ctex"
-path.etc2="res://.godot/imported/256_Grass 03 Mud.png-c7e541039725fbab387b957a400d9a95.etc2.ctex"
+uid="uid://csp5a668v8f6x"
+path.s3tc="res://.godot/imported/5 - 2.png-b5c8ff6dd3d21be28e599f9dbf623454.s3tc.ctex"
+path.etc2="res://.godot/imported/5 - 2.png-b5c8ff6dd3d21be28e599f9dbf623454.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/World/backgrounds 256x256/256_Grass 03 Mud.png"
-dest_files=["res://.godot/imported/256_Grass 03 Mud.png-c7e541039725fbab387b957a400d9a95.s3tc.ctex", "res://.godot/imported/256_Grass 03 Mud.png-c7e541039725fbab387b957a400d9a95.etc2.ctex"]
+source_file="res://Assets/Textures/World/Trees Pack1/5 - 2.png"
+dest_files=["res://.godot/imported/5 - 2.png-b5c8ff6dd3d21be28e599f9dbf623454.s3tc.ctex", "res://.godot/imported/5 - 2.png-b5c8ff6dd3d21be28e599f9dbf623454.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmyqvboq0wh8l"]
+
+[ext_resource type="Texture2D" uid="uid://c50eb6ahgwp7s" path="res://Assets/Textures/World/backgrounds 256x256/256_Grass 03 Mud.png" id="1_38iu7"]
+[ext_resource type="Texture2D" uid="uid://btdlpu0u8dv17" path="res://Assets/Textures/World/backgrounds 256x256/256_Stone Rubble 01.png" id="2_bq3dv"]
+[ext_resource type="Texture2D" uid="uid://dek14d78e8yow" path="res://Assets/Textures/World/backgrounds 256x256/256_Path Dirt Horizontal 06.png" id="3_k3qgb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gaw3y"]
+albedo_texture = ExtResource("1_38iu7")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6s3nh"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_gaw3y")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ns2ln"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrqc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlh1f"]
+albedo_texture = ExtResource("2_bq3dv")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8u0cp"]
+material = SubResource("StandardMaterial3D_jlh1f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enp2q"]
+transparency = 1
+albedo_texture = ExtResource("3_k3qgb")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo502"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_enp2q")
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="GrassAndMud" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_6s3nh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassAndMud"]
+physics_material_override = SubResource("PhysicsMaterial_ns2ln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassAndMud/StaticBody3D"]
+shape = SubResource("BoxShape3D_hrqc7")
+
+[node name="StoneWall" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8u0cp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneWall"]
+physics_material_override = SubResource("PhysicsMaterial_ns2ln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_hrqc7")
+
+[node name="StonePath1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_bo502")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StonePath1"]
+physics_material_override = SubResource("PhysicsMaterial_ns2ln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StonePath1/StaticBody3D"]
+shape = SubResource("BoxShape3D_hrqc7")
