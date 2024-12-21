@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://tt6vpa31slle"]
+
+[ext_resource type="Script" path="res://Utility/hurt_box_3d.gd" id="1_owai5"]
+
+[node name="HurtBox3D" type="Area3D"]
+script = ExtResource("1_owai5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="cooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="cooldownTimer" to="." method="_on_cooldown_timer_timeout"]

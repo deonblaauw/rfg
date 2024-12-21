@@ -4,6 +4,7 @@ extends Control
 @onready var acacia_tile = $AcaciaTile
 @onready var inferius_tile = $InferiusTile
 @onready var makka_tile = $MakkaTile
+@onready var usakos_tile = $UsakosTile
 
 var lvl_menu_char_selection = "res://Title Screen/character_selection.tscn"
 
@@ -45,6 +46,14 @@ func _ready():
 	game_type = "Duration:
 		5 minutes"
 	setup_world_tile(makka_tile, world_name, description, game_type, icon_texture_path)
+
+	# Usakos setup
+	world_name = "Usakos"
+	icon_texture_path = "res://Assets/Textures/World/backgrounds 256x256/dirt_full_new.png"
+	description = "3D Test Scene"
+	game_type = "Duration:
+		5 minutes"
+	setup_world_tile(usakos_tile, world_name, description, game_type, icon_texture_path)
 
 	
 func setup_world_tile(world_node, world_name, description, game_type, icon_texture_path):

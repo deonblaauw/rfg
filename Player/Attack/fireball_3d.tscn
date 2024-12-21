@@ -1,0 +1,541 @@
+[gd_scene load_steps=127 format=3 uid="uid://dty5s4cyq87i0"]
+
+[ext_resource type="Script" path="res://Player/Attack/fireball_3d.gd" id="1_avx1a"]
+[ext_resource type="Texture2D" uid="uid://bs8ut02j0edvd" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_0.png" id="2_mk8tr"]
+[ext_resource type="Texture2D" uid="uid://dv6sik75wyp40" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_1.png" id="3_oxpan"]
+[ext_resource type="Texture2D" uid="uid://cvh2i5hhdufs0" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_2.png" id="4_lgug7"]
+[ext_resource type="Texture2D" uid="uid://dh71u4vxacj4t" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_3.png" id="5_gqsoy"]
+[ext_resource type="Texture2D" uid="uid://bibvdgiy0t45i" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_4.png" id="6_xbn3m"]
+[ext_resource type="Texture2D" uid="uid://ci203xlwkbrqc" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_5.png" id="7_2wq1u"]
+[ext_resource type="Texture2D" uid="uid://c7u4a26airpm1" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_6.png" id="8_mbj17"]
+[ext_resource type="Texture2D" uid="uid://btkwbjmvoulum" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_7.png" id="9_1kqat"]
+[ext_resource type="Texture2D" uid="uid://boj5pxy6xcyie" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_8.png" id="10_uyabj"]
+[ext_resource type="Texture2D" uid="uid://bjqphgo0uw53j" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_9.png" id="11_345mc"]
+[ext_resource type="Texture2D" uid="uid://dwodyx7pja3y1" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_10.png" id="12_jw1ds"]
+[ext_resource type="Texture2D" uid="uid://dlcqg48pppri6" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_11.png" id="13_v4muu"]
+[ext_resource type="Texture2D" uid="uid://blfgs5wdsnrju" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_12.png" id="14_25v5n"]
+[ext_resource type="Texture2D" uid="uid://c37g81iplspnx" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_13.png" id="15_gatq3"]
+[ext_resource type="Texture2D" uid="uid://qdlj4d6vqtdk" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_14.png" id="16_hjddp"]
+[ext_resource type="Texture2D" uid="uid://bg5oa41gjlfdp" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_15.png" id="17_xfvpv"]
+[ext_resource type="Texture2D" uid="uid://dayu8o1xu1161" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_16.png" id="18_bca4c"]
+[ext_resource type="Texture2D" uid="uid://bmilcjsaggtpb" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_17.png" id="19_xg1x7"]
+[ext_resource type="Texture2D" uid="uid://n5h64y6ug6ii" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_18.png" id="20_rin8h"]
+[ext_resource type="Texture2D" uid="uid://bj43exmrla40c" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_19.png" id="21_u24o5"]
+[ext_resource type="Texture2D" uid="uid://cum1ckvtd2jna" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_20.png" id="22_koxda"]
+[ext_resource type="Texture2D" uid="uid://dbh2pa4mw17hl" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_21.png" id="23_fg3as"]
+[ext_resource type="Texture2D" uid="uid://dr0ekxbfqgfwi" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_22.png" id="24_iisma"]
+[ext_resource type="Texture2D" uid="uid://bp55gky2v8iyr" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_23.png" id="25_ib245"]
+[ext_resource type="Texture2D" uid="uid://bumv558yqef6f" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_24.png" id="26_sntio"]
+[ext_resource type="Texture2D" uid="uid://dvbb8ndvsmtuc" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_25.png" id="27_8a0m6"]
+[ext_resource type="Texture2D" uid="uid://c6gm8f35ip0k0" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_26.png" id="28_vo1yu"]
+[ext_resource type="Texture2D" uid="uid://cgn826aejbj54" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_27.png" id="29_e6dh2"]
+[ext_resource type="Texture2D" uid="uid://b6h4na2cjn7et" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_28.png" id="30_4hscr"]
+[ext_resource type="Texture2D" uid="uid://cl1o5hyqrk8w4" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_29.png" id="31_f4lpu"]
+[ext_resource type="Texture2D" uid="uid://gy4xqbbbs1ee" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_30.png" id="32_h4jt1"]
+[ext_resource type="Texture2D" uid="uid://bswmdn5a2erxj" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_31.png" id="33_xqp5q"]
+[ext_resource type="Texture2D" uid="uid://cvmb6xx00rpd" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_32.png" id="34_jf7w6"]
+[ext_resource type="Texture2D" uid="uid://c5liik32747ut" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_33.png" id="35_pbc1v"]
+[ext_resource type="Texture2D" uid="uid://dt4phmkajcn54" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_34.png" id="36_c52ff"]
+[ext_resource type="Texture2D" uid="uid://bkal1cf24rjrq" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_35.png" id="37_bvysc"]
+[ext_resource type="Texture2D" uid="uid://chrhkavr533be" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_36.png" id="38_di3m6"]
+[ext_resource type="Texture2D" uid="uid://4slxr3wge0tu" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_37.png" id="39_wa2k5"]
+[ext_resource type="Texture2D" uid="uid://c0bp0mcbpbtyx" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_38.png" id="40_u6np1"]
+[ext_resource type="Texture2D" uid="uid://bfpu5g0ry0qo2" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_39.png" id="41_7icfi"]
+[ext_resource type="Texture2D" uid="uid://d30fttmvt5tbp" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_40.png" id="42_ulfdb"]
+[ext_resource type="Texture2D" uid="uid://bdmrucdsarh3l" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_41.png" id="43_vsu8l"]
+[ext_resource type="Texture2D" uid="uid://b40e2bvbmgq5e" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_42.png" id="44_6xybo"]
+[ext_resource type="Texture2D" uid="uid://cc07g4aewdcjq" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_43.png" id="45_vv18j"]
+[ext_resource type="Texture2D" uid="uid://ngpa4ryodyhx" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_44.png" id="46_gibfk"]
+[ext_resource type="Texture2D" uid="uid://beradhcep5nxy" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_45.png" id="47_mlrwn"]
+[ext_resource type="Texture2D" uid="uid://xqkjqy2x0nfp" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_46.png" id="48_wg1av"]
+[ext_resource type="Texture2D" uid="uid://bxsd7pjygnyic" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_47.png" id="49_y1det"]
+[ext_resource type="Texture2D" uid="uid://cr8leurr08st5" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_48.png" id="50_uhjmh"]
+[ext_resource type="Texture2D" uid="uid://bp3khcud0gwka" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_49.png" id="51_ucm0m"]
+[ext_resource type="Texture2D" uid="uid://enqom5uy4fqp" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_50.png" id="52_1l87c"]
+[ext_resource type="Texture2D" uid="uid://bw3wy7vsml13m" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_51.png" id="53_f7flt"]
+[ext_resource type="Texture2D" uid="uid://br44qh2fwqx2h" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_52.png" id="54_qoq7n"]
+[ext_resource type="Texture2D" uid="uid://bpx4sla7pv7hk" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_53.png" id="55_minrk"]
+[ext_resource type="Texture2D" uid="uid://b1pr7dw7lkta2" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_54.png" id="56_b7pq5"]
+[ext_resource type="Texture2D" uid="uid://dhoqggvcrgdqg" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_55.png" id="57_xjplk"]
+[ext_resource type="Texture2D" uid="uid://dv6sxk2h44sey" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_56.png" id="58_7n5um"]
+[ext_resource type="Texture2D" uid="uid://p12xbnaqgf7l" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_57.png" id="59_c5ti2"]
+[ext_resource type="Texture2D" uid="uid://d3vst5k68p3ol" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_58.png" id="60_0vubi"]
+[ext_resource type="Texture2D" uid="uid://c56k7hy1khdjw" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_59.png" id="61_hu038"]
+[ext_resource type="Texture2D" uid="uid://u3bo4jfw5i8m" path="res://Assets/Textures/Items/Weapons/Fx_pack/1/1_60.png" id="62_6gg4s"]
+[ext_resource type="Texture2D" uid="uid://4i7cuhdptat" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_0.png" id="63_6s7tt"]
+[ext_resource type="Texture2D" uid="uid://bpvyi8k8e8ee" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_1.png" id="64_5yvmh"]
+[ext_resource type="Texture2D" uid="uid://bj3h1bgtnix46" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_2.png" id="65_tmn54"]
+[ext_resource type="Texture2D" uid="uid://3iex5v4yupj2" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_3.png" id="66_wxgxt"]
+[ext_resource type="Texture2D" uid="uid://bccxt0qb3wake" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_4.png" id="67_53uj8"]
+[ext_resource type="Texture2D" uid="uid://vhyirhjf765u" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_5.png" id="68_o0ymn"]
+[ext_resource type="Texture2D" uid="uid://b6h3k2tmn745" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_6.png" id="69_hggux"]
+[ext_resource type="Texture2D" uid="uid://dwdtxg34mk248" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_7.png" id="70_05m1b"]
+[ext_resource type="Texture2D" uid="uid://bue2jwyjhjm28" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_8.png" id="71_p1cww"]
+[ext_resource type="Texture2D" uid="uid://jwqmlrjknaie" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_9.png" id="72_7y547"]
+[ext_resource type="Texture2D" uid="uid://y8qw3fsvgmi4" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_10.png" id="73_ad53k"]
+[ext_resource type="Texture2D" uid="uid://bldlwr7wn5yoq" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_11.png" id="74_gvo21"]
+[ext_resource type="Texture2D" uid="uid://dm1om34bdcxyy" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_12.png" id="75_nrxfe"]
+[ext_resource type="Texture2D" uid="uid://cbnyi7kb8fvgq" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_13.png" id="76_2mati"]
+[ext_resource type="Texture2D" uid="uid://c7ylqatlmilj3" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_14.png" id="77_yj2i6"]
+[ext_resource type="Texture2D" uid="uid://dlgx2thdq0d0u" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_15.png" id="78_bq31m"]
+[ext_resource type="Texture2D" uid="uid://cy8jwofadkowg" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_16.png" id="79_rl6jy"]
+[ext_resource type="Texture2D" uid="uid://drldpbtx1soeh" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_17.png" id="80_jnmdr"]
+[ext_resource type="Texture2D" uid="uid://d26trdx53xxrv" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_18.png" id="81_51gf7"]
+[ext_resource type="Texture2D" uid="uid://c00xvpo51pg58" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_19.png" id="82_jf08w"]
+[ext_resource type="Texture2D" uid="uid://c3ooewq3wgxh4" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_20.png" id="83_jc7rj"]
+[ext_resource type="Texture2D" uid="uid://f2ohfqcmpvw3" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_21.png" id="84_t0cl7"]
+[ext_resource type="Texture2D" uid="uid://dyhm6do61xhi7" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_22.png" id="85_68ei2"]
+[ext_resource type="Texture2D" uid="uid://en2xntvss35u" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_23.png" id="86_a7qfw"]
+[ext_resource type="Texture2D" uid="uid://bygtha5pi0cen" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_24.png" id="87_bd03i"]
+[ext_resource type="Texture2D" uid="uid://wl81gorjmyv5" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_25.png" id="88_k2gv5"]
+[ext_resource type="Texture2D" uid="uid://cok8a7x0xi0v8" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_26.png" id="89_8ig3t"]
+[ext_resource type="Texture2D" uid="uid://dm1x4trjoug3b" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_27.png" id="90_3wj3p"]
+[ext_resource type="Texture2D" uid="uid://df5sepl3hh44t" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_28.png" id="91_2b6le"]
+[ext_resource type="Texture2D" uid="uid://clf7umgk1oofu" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_29.png" id="92_uu1ox"]
+[ext_resource type="Texture2D" uid="uid://pfmucwaps5df" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_30.png" id="93_8o4vf"]
+[ext_resource type="Texture2D" uid="uid://c6tu6ma8mwmjx" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_31.png" id="94_y4wki"]
+[ext_resource type="Texture2D" uid="uid://tmofl62h1ogj" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_32.png" id="95_g7q77"]
+[ext_resource type="Texture2D" uid="uid://dhvwktr523sbq" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_33.png" id="96_w47rs"]
+[ext_resource type="Texture2D" uid="uid://dafxcvp0xeik0" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_34.png" id="97_opok5"]
+[ext_resource type="Texture2D" uid="uid://ciekvwyq1e82b" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_35.png" id="98_c0uhs"]
+[ext_resource type="Texture2D" uid="uid://baydwpqnygjfo" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_36.png" id="99_8mb2a"]
+[ext_resource type="Texture2D" uid="uid://ccc15nwqsj5ee" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_37.png" id="100_83be6"]
+[ext_resource type="Texture2D" uid="uid://b7ttclk733l7e" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_38.png" id="101_nwqk0"]
+[ext_resource type="Texture2D" uid="uid://bppu4hwhl8v1p" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_39.png" id="102_0cnv0"]
+[ext_resource type="Texture2D" uid="uid://c68k3kbguw4nn" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_40.png" id="103_jpvl3"]
+[ext_resource type="Texture2D" uid="uid://b0bda6l6ohix" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_41.png" id="104_13kg8"]
+[ext_resource type="Texture2D" uid="uid://ctoaanp5x8ur1" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_42.png" id="105_2qwm6"]
+[ext_resource type="Texture2D" uid="uid://dvvfcd3p3rswq" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_43.png" id="106_mmf6n"]
+[ext_resource type="Texture2D" uid="uid://rvf1jofydua4" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_44.png" id="107_5u6h4"]
+[ext_resource type="Texture2D" uid="uid://chaue85mfhl5u" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_45.png" id="108_ku4nq"]
+[ext_resource type="Texture2D" uid="uid://vd5k2pk3kxef" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_46.png" id="109_iuwbg"]
+[ext_resource type="Texture2D" uid="uid://dor30yvvflo6f" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_47.png" id="110_d0a80"]
+[ext_resource type="Texture2D" uid="uid://dulvrjhh50o8j" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_48.png" id="111_w5y26"]
+[ext_resource type="Texture2D" uid="uid://77p7e6uqb6ue" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_49.png" id="112_1fjfd"]
+[ext_resource type="Texture2D" uid="uid://sjcd40ciwben" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_50.png" id="113_fpsta"]
+[ext_resource type="Texture2D" uid="uid://ch3dbbv8hk0cw" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_51.png" id="114_ujgdp"]
+[ext_resource type="Texture2D" uid="uid://dkjxkjcv3ycbs" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_52.png" id="115_kvaw4"]
+[ext_resource type="Texture2D" uid="uid://com8xgm8nkah8" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_53.png" id="116_fcvo1"]
+[ext_resource type="Texture2D" uid="uid://d0yalx8phhkbn" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_54.png" id="117_4fxoh"]
+[ext_resource type="Texture2D" uid="uid://dsungwf4copkk" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_55.png" id="118_lts3o"]
+[ext_resource type="Texture2D" uid="uid://cuqvcbkminlu3" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_56.png" id="119_dfef8"]
+[ext_resource type="Texture2D" uid="uid://8hubch5wlom3" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_57.png" id="120_uwrts"]
+[ext_resource type="Texture2D" uid="uid://dcqkili21kgq2" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_58.png" id="121_pdxgx"]
+[ext_resource type="Texture2D" uid="uid://kemacr1yqfgf" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_59.png" id="122_yv6fb"]
+[ext_resource type="Texture2D" uid="uid://bswiqa6y0ru80" path="res://Assets/Textures/Items/Weapons/Fx_pack/3/1_60.png" id="123_0aisl"]
+[ext_resource type="AudioStream" uid="uid://cwj7uslvhxbcn" path="res://Assets/Audio/SoundEffect/woosh.wav" id="124_e3j6p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rqbq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mk8tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oxpan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lgug7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gqsoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xbn3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2wq1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mbj17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1kqat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uyabj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_345mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jw1ds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v4muu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_25v5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gatq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hjddp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xfvpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bca4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xg1x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_rin8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_u24o5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_koxda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fg3as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_iisma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ib245")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_sntio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8a0m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_vo1yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_e6dh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4hscr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_f4lpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_h4jt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_xqp5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_jf7w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_pbc1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_c52ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bvysc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_di3m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wa2k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_u6np1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7icfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ulfdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_vsu8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_6xybo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vv18j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_gibfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_mlrwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_wg1av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_y1det")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_uhjmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ucm0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_1l87c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_f7flt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qoq7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_minrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_b7pq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_xjplk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_7n5um")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_c5ti2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_0vubi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_hu038")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_6gg4s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_6s7tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_5yvmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_tmn54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_wxgxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_53uj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_o0ymn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_hggux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_05m1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_p1cww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_7y547")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_ad53k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_gvo21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_nrxfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_2mati")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_yj2i6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_bq31m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_rl6jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_jnmdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_51gf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_jf08w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_jc7rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_t0cl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_68ei2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_a7qfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_bd03i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_k2gv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_8ig3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_3wj3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_2b6le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_uu1ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_8o4vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_y4wki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_g7q77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_w47rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_opok5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_c0uhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_8mb2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_83be6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_nwqk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_0cnv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_jpvl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_13kg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_2qwm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_mmf6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_5u6h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_ku4nq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_iuwbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_d0a80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_w5y26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_1fjfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_fpsta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_ujgdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_kvaw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_fcvo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_4fxoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_lts3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_dfef8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_uwrts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_pdxgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_yv6fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_0aisl")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 30.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vljmq"]
+size = Vector3(0.463226, 0.230366, 0.205566)
+
+[node name="fireball3D" type="Area3D" groups=["attack"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+top_level = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_avx1a")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_0rqbq")
+animation = &"shooting"
+frame_progress = 0.993863
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103653, -0.03792, 0.00170898)
+shape = SubResource("BoxShape3D_vljmq")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="ChangeDirectionTimer" type="Timer" parent="."]
+
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("124_e3j6p")
+volume_db = -10.0
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]

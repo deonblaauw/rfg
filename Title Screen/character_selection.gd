@@ -65,4 +65,3 @@ func _on_samurai_char_select_click_end():
 
 func _on_smash_kinght_char_select_click_end():
 	select_character("smash_knight")
-

@@ -1,15 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bal720rlgixjg"]
+[gd_scene load_steps=10 format=3 uid="uid://bal720rlgixjg"]
 
 [ext_resource type="MeshLibrary" uid="uid://bcqvettr3bxi5" path="res://Utility/mesh_library.tres" id="1_a540w"]
 [ext_resource type="Script" path="res://World/world3D_control.gd" id="1_l4r88"]
 [ext_resource type="PackedScene" uid="uid://r03bjn44l8e3" path="res://Player/player_3d.tscn" id="3_3jmdy"]
+[ext_resource type="PackedScene" uid="uid://dty5s4cyq87i0" path="res://Player/Attack/fireball_3d.tscn" id="5_3kpl1"]
+[ext_resource type="Texture2D" uid="uid://cmfirwqs03ofj" path="res://World/Panoramics Skyboxes/FS002/FS002_Sunset.png" id="6_ggbqy"]
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_s770y"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gn86e"]
+panorama = ExtResource("6_ggbqy")
+
+[sub_resource type="Sky" id="Sky_oulr2"]
+sky_material = SubResource("PanoramaSkyMaterial_gn86e")
+
+[sub_resource type="Environment" id="Environment_1vele"]
+background_mode = 2
+sky = SubResource("Sky_oulr2")
 
 [node name="Usakos" type="Node3D"]
 script = ExtResource("1_l4r88")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 5.14592, 0)
+light_color = Color(1, 0.929412, 0.682353, 1)
+light_energy = 4.0
 shadow_enabled = true
 
 [node name="floor" type="GridMap" parent="."]
@@ -33,4 +47,10 @@ volume_db = -20.0
 autoplay = true
 
 [node name="Player3D" parent="." instance=ExtResource("3_3jmdy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961393, 1.21123, 0.946477)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.961393, 1.36319, 0.946477)
+
+[node name="fireball3D" parent="." instance=ExtResource("5_3kpl1")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.73436, 2.66508, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1vele")

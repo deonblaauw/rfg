@@ -98,6 +98,3 @@ func show_damage_number(damage: int):
 	# Position it above the enemy with a slight offset
 	damage_number_instance.position = position + Vector2(0, 0)  # Adjust -20 as needed
 	damage_number_instance.show_number(position)
-
-
-

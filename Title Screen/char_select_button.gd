@@ -23,6 +23,3 @@ func _on_btn_select_mouse_exited():
 	
 func _on_btn_select_pressed():
 	snd_click.play()
-
-
-

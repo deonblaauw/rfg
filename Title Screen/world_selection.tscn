@@ -67,7 +67,7 @@ offset_top = 207.0
 offset_right = 307.0
 offset_bottom = 274.0
 
-[node name="Usakos" parent="." instance=ExtResource("4_y22jc")]
+[node name="UsakosTile" parent="." instance=ExtResource("4_y22jc")]
 layout_mode = 0
 offset_left = 464.0
 offset_top = 112.0
@@ -79,4 +79,4 @@ offset_bottom = 179.0
 [connection signal="world_select_click_end" from="AcaciaTile" to="." method="_on_acacia_world_select_click_end"]
 [connection signal="world_select_click_end" from="InferiusTile" to="." method="_on_inferius_tile_world_select_click_end"]
 [connection signal="world_select_click_end" from="MakkaTile" to="." method="_on_makka_tile_world_select_click_end"]
-[connection signal="world_select_click_end" from="Usakos" to="." method="_on_usakos_world_select_click_end"]
+[connection signal="world_select_click_end" from="UsakosTile" to="." method="_on_usakos_world_select_click_end"]
