@@ -49,7 +49,7 @@ const UPGRADES = {
 		"displayname": "Suriken",
 		"details": "An addition Suriken is thrown",
 		"level": "Level: 2",
-		"prerequisite": ["icespear1"],
+		"prerequisite": ["suriken1"],
 		"type": "weapon"
 	},
 	"suriken3": {
@@ -57,7 +57,7 @@ const UPGRADES = {
 		"displayname": "Suriken",
 		"details": "Surikens now pass through another enemy and do +5 damage",
 		"level": "Level: 3",
-		"prerequisite": ["icespear2"],
+		"prerequisite": ["suriken2"],
 		"type": "weapon"
 	},
 	"suriken4": {
@@ -65,7 +65,7 @@ const UPGRADES = {
 		"displayname": "Suriken",
 		"details": "An additional 2 Surikens are thrown",
 		"level": "Level: 4",
-		"prerequisite": ["icespear3"],
+		"prerequisite": ["suriken3"],
 		"type": "weapon"
 	},
 	"javelin1": {
