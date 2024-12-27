@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://dao4hmgs0yexy"]
+
+[ext_resource type="Texture2D" uid="uid://dmyrryu1ot1v1" path="res://Assets/Textures/Items/Chests/chest_01.png" id="1_fg330"]
+[ext_resource type="Script" path="res://Objects/chest.gd" id="1_k85jh"]
+[ext_resource type="AudioStream" uid="uid://cqcqt1dtuq3rq" path="res://Assets/Audio/SoundEffect/ice.wav" id="3_bleo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy1j7"]
+atlas = ExtResource("1_fg330")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vkr3"]
+atlas = ExtResource("1_fg330")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1vpi"]
+atlas = ExtResource("1_fg330")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aoi3"]
+atlas = ExtResource("1_fg330")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwnay"]
+atlas = ExtResource("1_fg330")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puylo"]
+atlas = ExtResource("1_fg330")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nolw7"]
+atlas = ExtResource("1_fg330")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ide37"]
+atlas = ExtResource("1_fg330")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbc6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy1j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vkr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1vpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aoi3")
+}],
+"loop": false,
+"name": &"chest_close_anim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwnay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puylo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nolw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ide37")
+}],
+"loop": false,
+"name": &"chest_open_anim",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1t55"]
+size = Vector2(18, 18)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_k85jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fbc6k")
+animation = &"chest_close_anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u1t55")
+
+[node name="snd_opened" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bleo3")
+volume_db = -10.0

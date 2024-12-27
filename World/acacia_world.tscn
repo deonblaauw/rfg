@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://darclchdctcke"]
+[gd_scene load_steps=9 format=3 uid="uid://darclchdctcke"]
 
 [ext_resource type="Texture2D" uid="uid://d2ow18y8e83sh" path="res://Assets/Textures/World/backgrounds 256x256/256_Dirt Muddy 01.png" id="1_il02n"]
 [ext_resource type="Script" path="res://World/world_control.gd" id="1_reb8a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cfq5vla4naxnf" path="res://Enemies/EnemySpawnData.tres" id="4_5p4f8"]
 [ext_resource type="PackedScene" uid="uid://cru0ygvvm2td0" path="res://Objects/experience_gem.tscn" id="5_fjaqi"]
 [ext_resource type="AudioStream" uid="uid://btdgv43q6wh5m" path="res://Assets/Audio/Music/battleThemeA.mp3" id="6_xo0ai"]
+[ext_resource type="PackedScene" uid="uid://dao4hmgs0yexy" path="res://Objects/chest.tscn" id="8_bx4ge"]
 
 [node name="Acacia World" type="Node2D"]
 script = ExtResource("1_reb8a")
@@ -35,3 +36,6 @@ experience = 50
 stream = ExtResource("6_xo0ai")
 volume_db = -20.0
 autoplay = true
+
+[node name="Chest" parent="." instance=ExtResource("8_bx4ge")]
+position = Vector2(124, -43)
