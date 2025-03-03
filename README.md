@@ -1,40 +1,26 @@
-# RFG - Game Description and Architecture
+# RFG (Roguelike Fantasy Game)
 
-## Game Overview
+<div align="center">
+  <img src="icon.svg" alt="RFG Logo" width="200"/>
+  <p><em>A 2D action survival roguelike built with Godot</em></p>
+</div>
 
-RFG appears to be a 2D action survival game built in Godot, similar to games like Vampire Survivors. The player controls a character who must survive waves of enemies by using various weapons and abilities. The game features:
+## Overview
 
-- Multiple playable characters with different stats
-- Various attack types (fireball, ice spear, javelin, shuriken, tornado)
-- Different enemy types with unique behaviors
-- Experience/leveling system with upgrades
-- Multiple worlds/environments to play in
-- Wave-based enemy spawning system
+RFG is a 2D action survival roguelike game built using the Godot engine. Inspired by games like Vampire Survivors, players must survive waves of increasingly difficult enemies using various weapons and abilities. The game features multiple playable characters, diverse enemy types, and different worlds to explore.
 
-## Game Loop and Logic
+## Game Features
 
-### Text Description
+- **Multiple Characters**: Choose from different characters with unique stats and playstyles
+- **Diverse Weapon System**: Utilize fireballs, ice spears, javelins, shurikens, and tornados
+- **Enemy Variety**: Face different enemy types (bats, kobolds, cyclops, juggernauts) with unique behaviors
+- **Progression System**: Collect experience gems, level up, and upgrade your abilities
+- **Multiple Worlds**: Battle across different environments (Grasslands, Acacia, Infernius, Makka) with unique challenges
+- **Wave-based Combat**: Face increasingly difficult waves of enemies as time progresses
 
-1. **Game Initialization**:
-   - Player selects a character from the character selection screen
-   - Player selects a world to play in
-   - The game initializes the player, world, and enemy spawner
+## Game Loop
 
-2. **Core Game Loop**:
-   - Player moves around the world using input controls
-   - Enemy spawner continuously spawns enemies based on time and difficulty
-   - Player attacks enemies using various weapons/abilities
-   - Enemies move toward and attack the player
-   - When enemies die, they may drop experience gems
-   - Player collects experience to level up
-   - On level up, player selects upgrades to enhance abilities
-   - The difficulty increases over time with stronger/more enemies
-
-3. **Game End Conditions**:
-   - Player dies when health reaches zero
-   - Game displays results and returns to menu
-
-### Mermaid Diagram
+The core gameplay loop follows this pattern:
 
 ```mermaid
 flowchart TD
@@ -67,6 +53,8 @@ flowchart TD
 ```
 
 ## System Architecture
+
+The game is built with a modular architecture that separates different game systems:
 
 ```mermaid
 classDiagram
@@ -119,49 +107,43 @@ classDiagram
     Player "1" -- "1" UpgradeSystem : uses
 ```
 
-## Updated README.md
+## Project Structure
 
-```markdown:README.md
-# RFG
-
-## What is this?
-
-RFG is a 2D action survival game built using the Godot engine. It's a collaborative effort between siblings, combining our creativity and passion for game development. Inspired by games like Vampire Survivors, players must survive waves of enemies using various weapons and abilities.
-
-## Game Features
-
-- **Multiple Characters**: Choose from different characters with unique stats
-- **Various Weapons**: Utilize fireballs, ice spears, javelins, shurikens, and tornados
-- **Enemy Variety**: Face different enemy types with unique behaviors
-- **Progression System**: Collect experience, level up, and upgrade your abilities
-- **Multiple Worlds**: Play across different environments with unique challenges
-- **Wave-based Combat**: Face increasingly difficult waves of enemies
-
-## Game Loop
-
-1. Select a character and world
-2. Move around and attack enemies
-3. Collect experience from defeated enemies
-4. Level up and choose upgrades
-5. Survive as long as possible against increasingly difficult waves
-
-## Project Status
-
-This project is currently in active development. Features and gameplay are continuously being refined and expanded.
-
-## Getting Started
-
-1. Clone the repository
-2. Open the project in Godot Engine
-3. Run the game from the editor or export to your platform of choice
+- **Player/**: Player character, controls, and attack systems
+- **Enemies/**: Enemy types, behaviors, and spawning logic
+- **World/**: Game environments and world-specific settings
+- **Objects/**: Interactive game objects like chests and experience gems
+- **Utility/**: Helper systems and shared functionality
+- **Title Screen/**: Menu and character/world selection interfaces
+- **Assets/**: Game art, audio, and other resources
 
 ## Controls
 
-- WASD or Arrow Keys: Move character
+- **WASD** or **Arrow Keys**: Move character
 - Weapons auto-attack when enemies are in range
-- ESC: Pause game
+- **ESC**: Pause game
 
-## Development
+## Getting Started
 
-This project is built with Godot 4.x and GDScript.
-```
+### For Players
+1. Download the latest release for your platform
+2. Run the game
+3. Select your character and world
+4. Survive as long as possible!
+
+### For Developers
+1. Clone the repository
+2. Open the project in Godot Engine (4.x)
+3. Run the game from the editor or export to your platform of choice
+
+## Development Status
+
+This project is currently in active development. Features and gameplay are continuously being refined and expanded.
+
+## About the Project
+
+RFG is a collaborative effort between siblings, combining our creativity and passion for game development. It serves as both a learning platform for mastering the Godot engine and a fun way to create and share games together as a family.
+
+## License
+
+[Include license information here]
