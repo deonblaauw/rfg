@@ -356,7 +356,7 @@ func get_random_target():
 			return position + Vector2(0, 10)
 		else:
 			# Default to shooting upwards if no direction is found
-			return position + Vector2(0, -10)
+			return [enemy_close.size(),position + Vector2(0, -10)]
 
 func remove_null_items():
 	for i in range(enemy_close.size() - 1, -1, -1):

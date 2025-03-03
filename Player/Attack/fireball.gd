@@ -131,9 +131,13 @@ func add_paths():
 		target_array.append(new_path)
 		counter += 1
 		enable_attack(true)
+			
+			
 		
-	target = target_array[0]
-	process_path()
+	if target_array:
+		target = target_array[0]
+		print(target)
+		process_path()
 
 func process_path():
 	angle = global_position.direction_to(target)

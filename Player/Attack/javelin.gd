@@ -140,9 +140,10 @@ func add_paths():
 	
 	while counter < paths:
 		var new_path = player.get_random_target()
-		target_array.append(new_path)
-		counter += 1
-		enable_attack(true)
+		if new_path > 0:
+			target_array.append(new_path)
+			counter += 1
+			enable_attack(true)
 		
 	target = target_array[0]
 	process_path()
